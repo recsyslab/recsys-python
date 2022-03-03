@@ -60,5 +60,6 @@ print()
 
 ![eq_cbr1_user_profile_avg](/img/eq/eq_cbr1_user_profile_avg.png)
 
-ここでa、![eq_cbr1_user_profile_avg_2](/img/eq/eq_cbr1_user_profile_avg_2.png)
+このとき、次の部分を求めなさい。
 
+![eq_cbr1_user_profile_avg_2](/img/eq/eq_cbr1_user_profile_avg_2.png)
