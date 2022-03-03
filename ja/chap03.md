@@ -66,3 +66,55 @@ print()
 $$
 \mathrm{dist}(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}) = \sqrt{\sum_{k=1}^{d} (x_{j,k} - x_{i,k})^{2}}
 $$
+ここで、$$d$$はベクトルの次元数である。
+
+### 01 距離関数の定義 | 関数
+関数の仕様を満たすように、次のコードの【ToDo】の箇所を埋めて距離関数を完成させなさい。呼出し側のコードを実行したとき、実行結果のとおりの結果が出力されること。
+
+```python
+def dist(xi, xj):
+    """
+    距離関数：アイテムiの特徴ベクトルxiとアイテムjの特徴ベクトルxjのユークリッド距離を算出する。
+
+    Parameters
+    ----------
+    xi : ndarray
+        アイテムiの特徴ベクトル
+    xj : ndarray
+        アイテムjの特徴ベクトル
+
+    Returns
+    -------
+    distance : float
+        ユークリッド距離
+    """
+    【ToDo】
+    return distance
+```
+
+呼出し側
+```python
+i = 7
+j = 2
+print('dist(x{}, x{}) = {:.3f}'.format(i, j, dist(x[i], x[j])))
+```
+
+実行結果
+```
+dist(x7, x2) = 1.000
+```
+
+★★★
+1. `ndarray.size`を使う。
+2. リスト内包表記を使う。
+3. `range()`を使う。
+4. `np.sum()`を使う。
+5. `np.sqrt()`を使う。
+
+★★★
+1. `ndarray.size`を使わない。
+2. リスト内包表記を使わない。
+3. `range()`を使わない。
+4. `np.sum()`を使う。
+5. `np.sqrt()`を使う。
+
