@@ -58,6 +58,11 @@ print('Iu+ = {}'.format(Iup))
 Iun = I[ru==-1]
 print('Iu- = {}'.format(Iun))
 print()
+
+# ユーザuが未評価のアイテム集合
+Iu_not = np.setdiff1d(I, Iu)
+print('Iu_not = {}'.format(Iu_not))
+print()
 ```
 
 ## 距離
@@ -118,3 +123,7 @@ dist(x7, x2) = 1.000
 4. `np.sum()`を使う。
 5. `np.sqrt()`を使う。
 
+## 近傍アイテム
+
+### 02 対象アイテム$$i$$と各アイテムとのユークリッド距離
+対象アイテム7と各アイテム$$j$$とのユークリッド距離を求めなさい。
