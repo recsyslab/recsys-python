@@ -54,5 +54,4 @@ Iun = I[ru==-1]
 print('Iu- {}= '.format(Iun))
 print()
 ```
-
-<img src="https://latex.codecogs.com/svg.image?u_{i}" title="u_{i}" />
+<img src="https://latex.codecogs.com/svg.image?\bm{p}_{u}&space;=&space;\frac{1}{\mid&space;I_{u}^{&plus;}&space;\mid}&space;\sum_{i&space;\in&space;I_{u}^{&plus;}}&space;\bm{x}_{i}" title="\bm{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \bm{x}_{i}" />
