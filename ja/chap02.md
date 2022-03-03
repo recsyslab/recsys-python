@@ -203,9 +203,13 @@ def cos(pu, xi):
     return cosine
 ```
 
+呼出し側
+```python
+cos(pu[0], x[7])
+```
+
 実行結果
 ```python
->>> cos(pu[0], x[7])
 0.9965457582448796
 ```
 
@@ -277,7 +281,7 @@ $$
 2. `dict.items()`を使う。
 
 ### 13 スコアに基づくアイテムIDのソート | 辞書のソート
-`scores`内の`{i: score(u, i)}`のペアを`score(u, i)`の降順にソートしなさい。得られたリストを`ranked_list`とすること。
+`scores`内の`{i: score(u, i)}`のペアを`score(u, i)`の降順にソートしなさい。得られたリストを`rec_list`とすること。
 
 ★★★
 1. `sorted()`を使う。
@@ -286,8 +290,54 @@ $$
 4. `reverse`を指定する。
 5. `lambda`式を使う。
 
+### 14 推薦リストの生成 | リストのスライス
+`rec_list`から上位`TOP_K`件のリストを取得しなさい。得られたリストを`rec_list`とすること。
 
+★
+1. リストのスライスを使う。
 
+### 15 推薦リストの生成 | タプルリストの辞書への変換
+`ranked_list`を辞書に変換しなさい。変換された辞書を`rec_list`とすること。
 
+★
+1. `dict()`を使う。
 
+### 16 順序付け関数の定義 | 関数
+実行結果のとおりの結果が出力されるように、次のコードの【ToDo】の箇所を埋めて順序付け関数を完成させなさい。
 
+```python
+def order(u, I):
+    """
+    順序付け関数：アイテム集合Iにおいて、ユーザu向けの推薦リストを返す。
+
+    Parameters
+    ----------
+    u : int
+        ユーザuのインデックス
+    I : ndarray
+        アイテム集合
+
+    Returns
+    -------
+    rec_list: dict
+        推薦リスト
+    """
+    【ToDo】
+    return rec_list
+```
+
+呼出し側
+```python
+rec_list = order(u, Iu_not)
+print('rec_list = ')
+for i, scr in rec_list.items():
+   print('{}: {:.3f}'.format(i, scr))
+```
+
+実行結果
+```python
+rec_list = 
+7: 0.997
+8: 0.983
+9: 0.966
+```
