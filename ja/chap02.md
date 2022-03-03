@@ -110,7 +110,7 @@ $$
 3. `axis`を指定する。
 
 ## コサイン類似度
-ユーザプロファイル$\boldsymbol{p}_{u}$とアイテム$i$の特徴ベクトル$\boldsymbol{x}_{i}$のコサイン類似度は次式で定義される。
+ユーザプロファイル$\boldsymbol{p}_{u}$ $\boldsymbol{p}_{u}$とアイテム$i$の特徴ベクトル$\boldsymbol{x}_{i}$のコサイン類似度は次式で定義される。
 
 $\boldsymbol{p}_{u}$
 
