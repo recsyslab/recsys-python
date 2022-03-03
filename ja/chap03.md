@@ -3,11 +3,16 @@
 
 # 第3章 内容ベース推薦システム | k近傍法
 
+## 準備
+次のコードを入力しなさい。
+
 ```python
 import numpy as np
 
 # 上位K件
 TOP_K = 3
+# 近傍アイテム数
+K_ITEMS = 3
 
 # 評価履歴
 Du = np.array([
@@ -54,3 +59,10 @@ Iun = I[ru==-1]
 print('Iu- = {}'.format(Iun))
 print()
 ```
+
+## 距離
+アイテム$$i$$の特徴ベクトル$$\boldsymbol{x}_{i}$とアイテム$$j$$の特徴ベクトル$$\boldsymbol{x}_{j}$のユークリッド距離は次式で定義される。
+
+$$
+\mathrm{dist}(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}) = \sqrt{\sum_{k=1}^{d} (x_{j,k} - x_{i,k})^{2}}
+$$
