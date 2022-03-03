@@ -112,10 +112,29 @@ $$
 
 ## コサイン類似度
 
-### 05
+ユーザプロファイル$\boldsymbol{p}_{u}$とアイテム$i$の特徴ベクトル$\boldsymbol{x}_{i}$のコサイン類似度は次式で定義される。
 
 $$
 \mathrm{cos}(\boldsymbol{p}_{u}, \boldsymbol{x}_{i}) = \frac{\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}}{\| \boldsymbol{p}_{u} \| \| \boldsymbol{x}_{i} \|}
 $$
+
+### 05
+
+内積$\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}$を求めなさい。
+
+★
+1. `@`演算子を使う。
+
+★
+1. `numpy.dot()`を使う。
+
+★★★
+1. リスト内包表記を使う。
+
+
+
+
+
+
 
 
