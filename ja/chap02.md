@@ -71,7 +71,13 @@ $\boldsymbol{p} _{u}$
 
 $\boldsymbol{p}_{u}$
 
-$\bm{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \bm{x}_{i}$
+$\boldsymbol{p}_{u}$
+
+$\frac{1}{\mid I_{u}^{+} \mid}$
+
+$\sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$
+
+$\boldsymbol{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$
 ![eq_cbr1_user_profile_avg](/img/eq/eq_cbr1_user_profile_avg.png)
 
 ### 01 好きなアイテム集合に含まれる特徴ベクトルの取得 | 整数配列インデックス参照
