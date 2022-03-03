@@ -57,7 +57,8 @@ print()
 
 ## 01 
 ユーザ`u`のユーザプロファイル`pu`は次式で求められる。
+
 ![eq_cbr1_user_profile_avg](/img/eq/eq_cbr1_user_profile_avg.png)
+
 ここで、![eq_cbr1_user_profile_avg_2](/img/eq/eq_cbr1_user_profile_avg_2.png)
 
-![eq_cbr1_user_profile_avg_2](/img/eq/eq_cbr1_user_profile_avg_2.png)
