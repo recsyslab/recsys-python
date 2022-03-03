@@ -60,5 +60,5 @@ print()
 
 ![eq_cbr1_user_profile_avg](/img/eq/eq_cbr1_user_profile_avg.png)
 
-ここで、![eq_cbr1_user_profile_avg_2](/img/eq/eq_cbr1_user_profile_avg_2.png)
+ここでa、![eq_cbr1_user_profile_avg_2](/img/eq/eq_cbr1_user_profile_avg_2.png)
 
