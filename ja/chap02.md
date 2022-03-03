@@ -77,6 +77,8 @@ $\frac{1}{\mid I_{u}^{+} \mid}$
 
 $\sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$
 
+$\boldsymbol{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid}$
+
 $\boldsymbol{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$
 
 
