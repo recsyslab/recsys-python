@@ -54,4 +54,4 @@ Iun = I[ru==-1]
 print('Iu- {}= '.format(Iun))
 print()
 ```
-<img src="https://latex.codecogs.com/svg.image?\bm{p}_{u}&space;=&space;\frac{1}{\mid&space;I_{u}^{&plus;}&space;\mid}&space;\sum_{i&space;\in&space;I_{u}^{&plus;}}&space;\bm{x}_{i}" />
+![eq_cbr1_user_profile_avg](/img/eq/eq_cbr1_user_profile_avg.png)
