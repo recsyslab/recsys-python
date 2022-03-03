@@ -62,24 +62,9 @@ print()
 
 ユーザ`u`のユーザプロファイル`pu`は次式で求められる。
 
-$u_{i}$
-
-$$ \\bm{p}_{u} $$
-
-
-$\boldsymbol{p} _{u}$
-
-$\boldsymbol{p}_{u}$
-
-$\boldsymbol{p}_{u}$
-
-$\frac{1}{\mid I_{u}^{+} \mid}$
-
-$\sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$
-
-$$\boldsymbol{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid}$$
-
 $$\boldsymbol{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$$
+
+ここで、$I_{u}^{+}$は、。。
 
 ### 01 好きなアイテム集合に含まれる特徴ベクトルの取得 | 整数配列インデックス参照
 `Iup`に含まれるアイテムの特徴ベクトルをすべて取得しなさい。
