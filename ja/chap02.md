@@ -58,11 +58,13 @@ print('Iu- {}= '.format(Iun))
 print()
 ```
 
-## ユーザプロファイルの算出
+## ユーザプロファイル
 
 ユーザ$u$のユーザプロファイル$\boldsymbol{p}_{u}$は次式で求められる。
 
-$$\boldsymbol{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$$
+$$
+\boldsymbol{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}
+$$
 
 ここで、$I_{u}^{+}$はユーザ$u$が「好き」と評価したアイテム集合であり、$\boldsymbol{x}_{i}$はアイテム$i$の特徴ベクトルである。
 
@@ -81,7 +83,9 @@ $$\boldsymbol{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \bol
 ### 03 特徴ベクトルの総和 | 総和
 次式により、$I_{u}^{+}$に含まれるアイテムの特徴ベクトルの総和を求めなさい。
 
-$$\sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$$
+$$
+\sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}
+$$
 
 ★★
 1. ベクトルの整数配列インデックス参照を使う。
@@ -106,5 +110,12 @@ $$\sum_{i \in I_{u}^{+}} \boldsymbol{x}_{i}$$
 2. `numpy.sum()`を使う。
 3. `axis`を指定する。
 
-## 
+## コサイン類似度
+
+### 05
+
+$$
+\mathrm{cos}(\boldsymbol{p}_{u}, \boldsymbol{x}_{i}) = \frac{\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}}{\| \boldsymbol{p}_{u} \| \| \boldsymbol{x}_{i} \|}
+$$
+
 
