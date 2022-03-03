@@ -112,7 +112,7 @@ $$
 ## コサイン類似度
 ユーザプロファイル$\boldsymbol{p}_{u}$とアイテム$i$の特徴ベクトル$\boldsymbol{x}_{i}$のコサイン類似度は次式で定義される。
 
-
+$\boldsymbol{p}_{u}$
 
 $$
 \mathrm{cos}(\boldsymbol{p}_{u}, \boldsymbol{x}_{i}) = \frac{\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}}{\| \boldsymbol{p}_{u} \| \| \boldsymbol{x}_{i} \|}
@@ -175,7 +175,7 @@ $$
 ### 07 コサイン類似度の算出 | 数式をコードに変換
 ユーザプロファイル$\boldsymbol{p}_{u}$とアイテム$i$の特徴ベクトル$\boldsymbol{x}_{i}$のコサイン類似度$\mathrm{cos}(\boldsymbol{p}_{u}, \boldsymbol{x}_{i})$を求めなさい。
 
-★★
+★
 1. 課題05と課題06の結果を使う。
 
 ### 08 コサイン類似度関数の定義 | 関数
@@ -209,6 +209,10 @@ def cos(pu, xi):
 >>> cos(pu[0], x[7])
 0.9965457582448796
 ```
+
+★★
+1. 課題07の結果を使う。
+
 
 
 
