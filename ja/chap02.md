@@ -147,13 +147,13 @@ $$
 
 ### 06 ベクトルのノルム
 
-$\| \bm{p}_{u} \|$はベクトル$\bm{p}_{u}$のノルム（大きさ）であり、次式のように表せる。
+$\| \boldsymbol{p}_{u} \|$はベクトル$\boldsymbol{p}_{u}$のノルム（大きさ）であり、次式のように表せる。
 
 $$
-\| \bm{p}_{u} \| = \sqrt{\bm{p}_{u} \cdot \bm{p}_{u}} = \sqrt{\sum_{k=1}^{d} p_{u,k}^{2}}
+\| \boldsymbol{p}_{u} \| = \sqrt{\boldsymbol{p}_{u} \cdot \boldsymbol{p}_{u}} = \sqrt{\sum_{k=1}^{d} p_{u,k}^{2}}
 $$
 
-ここで、$d$はベクトルの次元数である。ノルム$\| \bm{p}_{u} \|$を求めなさい。
+ここで、$d$はベクトルの次元数である。ノルム$\| \boldsymbol{p}_{u} \|$を求めなさい。
 
 ★
 1. `numpy.linalg.norm()`を使う。
