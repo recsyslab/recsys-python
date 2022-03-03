@@ -59,7 +59,6 @@ print()
 ```
 
 ## ユーザプロファイル
-
 ユーザ$u$のユーザプロファイル$\boldsymbol{p}_{u}$は次式で求められる。
 
 $$
@@ -111,19 +110,17 @@ $$
 3. `axis`を指定する。
 
 ## コサイン類似度
-
 ユーザプロファイル$\boldsymbol{p}_{u}$とアイテム$i$の特徴ベクトル$\boldsymbol{x}_{i}$のコサイン類似度は次式で定義される。
 
 $$
 \mathrm{cos}(\boldsymbol{p}_{u}, \boldsymbol{x}_{i}) = \frac{\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}}{\| \boldsymbol{p}_{u} \| \| \boldsymbol{x}_{i} \|}
 $$
 
-### 05 ベクトルの内積
-
+### 05 ベクトルの内積の算出 | ベクトルの内積
 $\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}$は二つのベクトル$\boldsymbol{p}_{u}$と$\boldsymbol{x}_{i}$の内積であり、次式のように表せる。
 
 $$
-\bm{p}_{u} \cdot \bm{x}_{i} = \sum_{k=1}^{d} p_{u,k} x_{i,k}
+\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i} = \sum_{k=1}^{d} p_{u,k} x_{i,k}
 $$
 
 ここで、$d$はベクトルの次元数である。内積$\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}$を求めなさい。
@@ -145,8 +142,7 @@ $$
 3. リスト内包表記を使わない。
 4. `numpy.sum()`を使う。
 
-### 06 ベクトルのノルム
-
+### 06 ベクトルのノルムの算出 | ベクトルのノルム
 $\| \boldsymbol{p}_{u} \|$はベクトル$\boldsymbol{p}_{u}$のノルム（大きさ）であり、次式のように表せる。
 
 $$
@@ -174,7 +170,34 @@ $$
 4. リスト内包表記を使わない。
 5. `numpy.sqrt()`を使う。
 
+### 07 コサイン類似度の算出 | 数式をコードに変換
+ユーザプロファイル$\boldsymbol{p}_{u}$とアイテム$i$の特徴ベクトル$\boldsymbol{x}_{i}$のコサイン類似度$\mathrm{cos}(\boldsymbol{p}_{u}, \boldsymbol{x}_{i})$を求めなさい。
 
+★
+1. 05と06の結果を使う。
+
+### 08
+
+```
+def cos(pu, xi):
+    """
+    コサイン類似度関数：ユーザプロファイルpuとアイテムiの特徴ベクトルxiのコサイン類似度を算出する。
+
+    Parameters
+    ----------
+    pu : ndarray
+        ユーザuのユーザプロファイル
+    xi : ndarray
+        アイテムiの特徴ベクトル
+
+    Returns
+    -------
+    cosine : float
+        コサイン類似度
+    """
+    
+    return cosine
+```
 
 
 
