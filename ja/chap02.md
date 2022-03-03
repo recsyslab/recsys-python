@@ -64,7 +64,9 @@ print()
 
 $u_{i}$
 
-$ \\bm{p}_{u} $
+$$ \\bm{p}_{u} $$
+
+$\bm{p} _{u}$
 
 $\bm{p}_{u} = \frac{1}{\mid I_{u}^{+} \mid} \sum_{i \in I_{u}^{+}} \bm{x}_{i}$
 ![eq_cbr1_user_profile_avg](/img/eq/eq_cbr1_user_profile_avg.png)
