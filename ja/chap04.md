@@ -47,7 +47,7 @@ $$
 \overline{r}_{u} = \frac{\sum_{i \in I_{u}} r_{u,i}}{\mid I_{u} \mid}
 $$
 
-$$\mathrm{pearson}(u, v)$$
+次のコードは$$\mathrm{pearson}(u, v)$$を算出するための関数である。以下の各課題に答えながらコード中の【課題NN】を埋め、関数を完成させなさい。関数を完成後、確認コードを実行したとき、実行結果のとおりの結果が出力されること。
 
 ```
 def pearson1(u, v):
@@ -85,6 +85,27 @@ def pearson1(u, v):
 
     return p
 ```
+
+確認コード
+```python
+u = 0
+v = 1
+prsn = pearson1(u, v)
+print('pearson({}, {}) = {:.3f}'.format(u, v, prsn))
+print()
+```
+
+実行結果
+```python
+I0 = [1 2 3 4]
+I1 = [0 1 2 4 5]
+I01 = [1 2 4]
+r0_mean = 2.500
+r1_mean = 4.000
+pearson(0, 1) = 0.853
+```
+
+
 
 
 ### 01 ユーザuの評価済みアイテム集合の取得 | ベクトルのブールインデックス参照
