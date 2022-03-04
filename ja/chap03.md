@@ -71,6 +71,7 @@ print()
 $$
 \mathrm{dist}(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}) = \sqrt{\sum_{k=1}^{d} (x_{j,k} - x_{i,k})^{2}}
 $$
+
 ここで、$$d$$はベクトルの次元数である。
 
 ### 01 距離関数の定義 | 関数
