@@ -233,7 +233,7 @@ def score(u, i):
     scr : float
         スコア
     """
-    return cos(pu[u], x[i])
+    return predict2(u, i)
 ```
 
 ### 05 近傍アイテム集合のうち対象ユーザが「好き」と評価したアイテム集合 | ベクトルのブールインデックス参照
@@ -332,3 +332,49 @@ predict2(0, 9) = -0.333
 1. リスト内包表記を使う。
 2. `numpy.sum()`を使う。
 
+### 10 順序付け関数の定義 | 関数
+関数の仕様を満たすように、次のコードの【ToDo】の箇所を埋めて順序付け類似度関数`order(u, I)`を完成させなさい。確認コードを実行したとき、実行結果のとおりの結果が出力されること。
+
+```python
+def order(u, I):
+    """
+    順序付け関数：アイテム集合Iにおいて、ユーザu向けの推薦リストを返す。
+
+    Parameters
+    ----------
+    u : int
+        ユーザuのインデックス
+    I : ndarray
+        アイテム集合
+
+    Returns
+    -------
+    rec_list: dict
+        推薦リスト
+    """
+    【ToDo】
+    return rec_list
+```
+
+確認コード
+```python
+u = 0
+rec_list = order(u, Iu_not)
+print('rec_list = ')
+for i, scr in rec_list.items():
+    print('{}: {:.3f}'.format(i, scr))
+```
+
+実行結果
+```python
+rec_list = 
+7: 0.997
+8: 0.983
+9: 0.966
+```
+
+★★
+1. 課題11の結果を使う。
+2. 課題13の結果を使う。
+3. 課題14の結果を使う。
+4. 課題15の結果を使う。
