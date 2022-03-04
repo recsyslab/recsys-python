@@ -329,6 +329,7 @@ def order(u, I):
 
 確認コード
 ```python
+u = 0
 rec_list = order(u, Iu_not)
 print('rec_list = ')
 for i, scr in rec_list.items():
