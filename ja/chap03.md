@@ -66,7 +66,7 @@ print()
 ```
 
 ## 距離
-アイテム$$i$$の特徴ベクトル$$\boldsymbol{x}_{i}$とアイテム$$j$$の特徴ベクトル$$\boldsymbol{x}_{j}$のユークリッド距離は次式で定義される。
+アイテム$$i$$の特徴ベクトル$$\boldsymbol{x}_{i}$とアイテム$$j$$の特徴ベクトル$$\boldsymbol{x}_{j}$$のユークリッド距離は次式で定義される。
 
 $$
 \mathrm{dist}(\boldsymbol{x}_{i}, \boldsymbol{x}_{j}) = \sqrt{\sum_{k=1}^{d} (x_{j,k} - x_{i,k})^{2}}
