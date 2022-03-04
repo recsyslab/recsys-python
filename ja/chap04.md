@@ -38,12 +38,7 @@ print()
 ユーザ$$u$$とユーザ$$v$$のピアソンの相関係数によるユーザ類似度$$\mathrm{sim}(u, v)$$は次式で定義される。
 
 $$
-\mathrm{sim}(u, v) = \mathrm{pearson}(u, v)
-$$
-
-$$
-\mathrm{sim}(u, v) = \mathrm{pearson}(u, v) \\
-                   = \frac{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})(r_{v,i} - \overline{r}_{v})}{\sqrt{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})^{2}} \sqrt{\sum_{i \in I_{u,v}} (r_{v,i} - \overline{r}_{v})^{2}}}
+\mathrm{sim}(u, v) = \mathrm{pearson}(u, v) = \frac{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})(r_{v,i} - \overline{r}_{v})}{\sqrt{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})^{2}} \sqrt{\sum_{i \in I_{u,v}} (r_{v,i} - \overline{r}_{v})^{2}}}
 $$
 
 ここで、$$I_{u,v}$$はユーザ$$u$$とユーザ$$v$$の共通の評価済みアイテム集合である。また、$$\overline{r}_{u}$$はユーザ$$u$$の平均評価値を表し、次式で算出される。
@@ -74,5 +69,15 @@ $$
 ★
 1. `numpy.intersect1d()`を使う。
 
-### 04
+### 04 ユーザuの平均評価値の算出 | 平均
+ユーザ0の平均評価値$$\overline{r}_{0}$$を求めなさい。求めた評価値を`ru_mean`とすること。
+
+★
+1. `numpy.nanmean()`を使う。
+
+### 05 ユーザvの平均評価値の算出 | 平均
+ユーザ1の平均評価値$$\overline{r}_{1}$$を求めなさい。求めた評価値を`rv_mean`とすること。
+
+★
+1. `numpy.nanmean()`を使う。
 
