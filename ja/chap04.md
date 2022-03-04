@@ -36,8 +36,16 @@ print()
 
 ## ユーザ類似度
 
+ユーザ$$u$$とユーザ$$v$$のピアソンの相関係数によるユーザ類似度$$\mathrm{sim}(u, v)$$は次式で定義される。
+
 $$
 \mathrm{sim}(u, v) &=& \mathrm{pearson}(u, v) \\
                    &=& \frac{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})(r_{v,i} - \overline{r}_{v})}{\sqrt{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})^{2}} \sqrt{\sum_{i \in I_{u,v}} (r_{v,i} - \overline{r}_{v})^{2}}}
+$$
+
+ここで、$$I_{u,v}$$はユーザ$$u$$とユーザ$$v$$の共通の評価済みアイテム集合である。また、$$\overline{r}_{u}$$はユーザ$$u$$の平均評価値を表し、次式で算出される。
+
+$$
+\overline{r}_{u} = \frac{\sum_{i \in I_{u}} r_{u,i}}{\mid I_{u} \mid}
 $$
 
