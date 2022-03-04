@@ -33,3 +33,11 @@ I = np.arange(R.shape[1])
 print('I = {}'.format(I))
 print()
 ```
+
+## ユーザ類似度
+
+$$
+\mathrm{sim}(u, v) &=& \mathrm{pearson}(u, v) \\
+                   &=& \frac{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})(r_{v,i} - \overline{r}_{v})}{\sqrt{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})^{2}} \sqrt{\sum_{i \in I_{u,v}} (r_{v,i} - \overline{r}_{v})^{2}}}
+$$
+
