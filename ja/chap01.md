@@ -198,7 +198,7 @@ $$\boldsymbol{R}$$を`ndarray`の行列`R`として生成しなさい。
 2. `ndarray.shape`を使う。
 
 ### 24 ユーザ数の取得 | ベクトルの要素数
-`U`の要素数を取得しなさい。
+ユーザ数$$\mid U \mid$$を取得しなさい。
 
 ★
 1. `ndarray.size`を使う。
