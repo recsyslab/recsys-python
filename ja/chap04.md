@@ -63,7 +63,7 @@ def pearson1(u, v):
 
     Returns
     -------
-    p : float
+    prsn : float
         ピアソンの相関係数
     """
     Iu = 【課題01】
@@ -79,11 +79,11 @@ def pearson1(u, v):
     print('r{}_mean = {:.3f}'.format(v, rv_mean))
 
     num = 【課題06】
-    den_u = 【課題06】
-    den_v = 【課題06】
-    p = num / (den_u * den_v)
+    den_u = 【課題07】
+    den_v = 【課題08】
+    prsn = 【課題09】
 
-    return p
+    return prsn
 ```
 
 確認コード
@@ -162,3 +162,37 @@ $$
 1. リスト内包表記を使う。
 2. `numpy.sum()`を使う。
 3. `numpy.sqrt()`を使う。
+
+### 07 ピアソンの相関係数の算出
+ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分母の左部である次式を求めるコードを記述しなさい。
+
+$$
+\sqrt{\sum_{i \in I_{u,v}} (r_{u,i} - \overline{r}_{u})^{2}}
+$$
+
+★★★
+1. リスト内包表記を使う。
+2. `numpy.sum()`を使う。
+3. `numpy.sqrt()`を使う。
+
+### 08 ピアソンの相関係数の算出
+ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分母の右部である次式を求めるコードを記述しなさい。
+
+$$
+\sqrt{\sum_{i \in I_{u,v}} (r_{v,i} - \overline{r}_{v})^{2}}
+$$
+
+★★★
+1. リスト内包表記を使う。
+2. `numpy.sum()`を使う。
+3. `numpy.sqrt()`を使う。
+
+### 09 ピアソンの相関係数の算出
+ピアソンの相関係数$$\mathrm{pearson}(u, v)$$を求めるコードを記述しなさい。
+
+★
+1. 課題06の結果を使う。
+2. 課題07の結果を使う。
+3. 課題08の結果を使う。
+
+
