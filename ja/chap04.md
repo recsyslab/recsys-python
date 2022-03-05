@@ -325,6 +325,13 @@ $$
 
 ## 類似ユーザの選定
 
+$$
+\begin{cases}
+ \overline{r}_{u} + \frac{\sum_{v \in U_{i}^{u}} \mathrm{sim}(u, v) \cdot r_{v,i}^{'}}{\sum_{v \in U_{i}^{u}} \mid \mathrm{sim} (u, v) \mid} & (U_{i}^{u} \neq \emptyset)\\
+ \overline{r}_{u} & (U_{i}^{u} = \emptyset)
+\end{cases}
+$$
+
 ```python
 def sim(u, v):
     """
