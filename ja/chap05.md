@@ -68,11 +68,25 @@ def cos(i, j):
     【課題03】
     print('U{}{} = {}'.format(i, j, Uij))
     
-    # アイテムi、アイテムjのコサイン類似度
+    # アイテムiとアイテムjのコサイン類似度
     【課題04】
     print('cos({}, {}) = {:.3f} / ({:.3f} * {:.3f}) = {:.3f}'.format(i, j, num, den_i, den_j, cosine))
 
     return cosine
+```
+
+```python
+i = 0
+j = 4
+cosine = cos(i, j)
+print('cos({}, {}) = {:.3f}'.format(i, j, cosine))
+```
+
+```python
+U0 = [1 2 4]
+U4 = [0 1 2 3]
+U04 = [1 2]
+cos(0, 4) = 0.996
 ```
 
 ### 01 アイテムiを評価済みのユーザ集合
