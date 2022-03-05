@@ -323,4 +323,104 @@ $$
 2. `numpy.sum()`を使う。
 3. `numpy.sqrt()`を使う。
 
+## 類似ユーザの選定
+
+```python
+def sim(u, v):
+    """
+    ユーザuとユーザvのユーザ類似度を算出する。
+
+    Parameters
+    ----------
+    u : int
+        ユーザu
+    v : int
+        ユーザv
+
+    Returns
+    -------
+    sim : float
+        ユーザ類似度
+    """
+    return pearson2(u, v)
+```
+
+```python
+def predict(u, i):
+    """
+    ユーザuのアイテムiに対する予測評価値を算出する。
+
+    Parameters
+    ----------
+    u : int
+        ユーザu
+    i : int
+        アイテムi
+
+    Returns
+    -------
+    rui_pred : float
+        ユーザuのアイテムiに対する予測評価値
+    """
+    # ユーザuの類似ユーザ集合
+    Uu = {v: sim(u, v) for v in U if u!=v}
+    print('U{} = {}'.format(u, Uu))
+    # 類似度上位K_USERS人のユーザ集合
+    Uu = 【課題15】
+    print('U{} = {}'.format(u, Uu))
+    # 類似度が閾値THETA以上のユーザ集合
+    Uu = 【課題16】
+    print('U{} = {}'.format(u, Uu))
+    # 辞書型からndarray型に変換
+    Uu = np.array(list(Uu.keys()))
+    print('U{} = {}'.format(u, Uu))
+
+    # アイテムiを評価済みのユーザ集合
+    Ui = 【課題17】
+#    print('U{} = {}'.format(i, Ui))
+    # ユーザuの類似ユーザ集合U^{u}の中でアイテムiを評価済みのユーザ集合
+    Uui = 【課題18】
+#    print('U{}{} = {}'.format(u, i, Uui))
+
+    # ユーザuのアイテムiに対する予測評価値
+    ru_mean = np.nanmean(R[u])
+    if Uui.size <= 0: return ru_mean
+    num = 【課題19】
+    den = 【課題20】
+    rui_pred = ru_mean + num / den
+#    print('r{}{}_pred = {:.3f} + {:.3f} / {:.3f} = {:.3f}'.format(u, i, ru_mean, num, den, rui_pred))
+```
+
+### 15 類似度上位k人のユーザ集合
+`Uu`は`v: sim(u, v)`を要素とした辞書である。`Uu`から上位`K_USERS`人のユーザ集合を辞書として取得するコードを記述しなさい。
+
+★★★
+1. `sorted()`を使う。
+2. リストのスライスを使う。
+3. `dict()`を使う。
+
+### 16 類似度がしきい値以上のユーザ集合
+`Uu`から類似度がしきい値`THETA`以上のユーザのみを残した辞書を作成するコードを記述しなさい。
+
+★★★
+1. 辞書内包表記を使う。
+2. `dict.items()`を使う。
+3. 辞書内包表記内で`if`節を使う。
+
+### 17
+アイテム$$i$$を評価済みのユーザ集合を取得するコードを記述しなさい。
+
+★★
+1. `numpy.isnan()`を使う。
+2. `~`演算子を使う。
+3. ベクトルのブールインデックス参照を使う。
+
+### 18
+ユーザ$$u$$の類似ユーザ集合$$U_{u}$$の中でアイテム$$i$$を評価済みのユーザ集合を取得するコードを記述しなさい。
+
+★
+1. `numpy.intersect1d()`を使う。
+
+### 19 予測評価値
+
 
