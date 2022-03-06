@@ -283,4 +283,12 @@ S =
 2. `numpy.array()`を使う。
 3. 得られた行列を`ndarray`として`S`に代入する。
 
+## 嗜好予測
 
+$$
+\hat{r}_{u,i} = 
+ \begin{cases}
+  \frac{\sum_{j \in I_{u}^{i}} \mathrm{sim}(i, j) \cdot r_{u,j}}{\sum_{j \in I_{u}^{i}} \mid \mathrm{sim}(i,j) \mid} & (I_{u}^{i} \neq \emptyset) \\
+  \overline{r}_{u} & (I_{u}^{i} = \emptyset)
+ \end{cases}
+$$
