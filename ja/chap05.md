@@ -139,11 +139,13 @@ $$
         \right]
 $$
 
-アイテム$$i$$とアイテム$$j$$のコサイン類似度$$\mathrm{cos}(i, j)$$は次式で定義される。
+このとき、アイテム$$i$$とアイテム$$j$$の調整コサイン類似度$$\mathrm{cos}(i, j)^{'}$$は次式で定義される。
 
 $$
-\mathrm{cos}(i, j) = \frac{\sum_{u \in U_{i,j}} r_{u,i} r_{u,j}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{2}}}
+\mathrm{cos}(i, j)^{'} = \frac{\sum_{u \in U_{i,j}} r_{u,i}^{'} r_{u,j}^{'}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{'2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{'2}}}
 $$
+
+
 
 ```
 def cos(i, j):
