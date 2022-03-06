@@ -145,12 +145,14 @@ $$
 \mathrm{cos}(i, j)^{'} = \frac{\sum_{u \in U_{i,j}} r_{u,i}^{'} r_{u,j}^{'}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{'2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{'2}}}
 $$
 
+ここで、$$r_{u,i}^{'}$$はユーザ$$u$$のアイテム$$i$$に対する平均中心化評価値を表す。
+
 
 
 ```
-def cos(i, j):
+def adjusted_cos(i, j):
     """
-    評価値行列Rにおいてアイテムiとアイテムjのコサイン類似度を算出する。
+    評価値行列R2においてアイテムiとアイテムjの調整コサイン類似度を算出する。
 
     Parameters
     ----------
@@ -162,35 +164,37 @@ def cos(i, j):
     Returns
     -------
     cosine : float
-        コサイン類似度
+        調整コサイン類似度
     """
-    # アイテムiを評価済みのユーザ集合
-    【課題01】
-    print('U{} = {}'.format(i, Ui))
-    # アイテムjを評価済みのユーザ集合
-    【課題02】
-    print('U{} = {}'.format(j, Uj))
-    # アイテムi、アイテムjの両方を評価済みのユーザ集合
-    【課題03】
-    print('U{}{} = {}'.format(i, j, Uij))
-    
-    # アイテムiとアイテムjのコサイン類似度
-    【課題04】
+    【課題07】
 
     return cosine
 ```
 
 ```python
+# 各ユーザの平均評価値
+【課題05】
+print('ru_mean = ', ru_mean)
+
+# 平均中心化評価値行列
+【課題06】
+print('R\' = \n{}'.format(R2))
+
+# 調整コサイン類似度
 i = 0
 j = 4
-cosine = cos(i, j)
-print('cos({}, {}) = {:.3f}'.format(i, j, cosine))
+cosine = adjusted_cos(i, j)
+print('sim({}, {}) = {:.3f}'.format(i, j, cosine))
 ```
 
 ```python
-U0 = [1 2 4]
-U4 = [0 1 2 3]
-U04 = [1 2]
-cos(0, 4) = 0.996
+ru_mean =  [2.5  4.   3.5  1.75 2.4 ]
+R' = 
+[[  nan  1.5   0.5  -1.5  -0.5    nan]
+ [ 1.    1.    0.     nan -1.   -1.  ]
+ [ 0.5    nan  1.5  -0.5  -1.5    nan]
+ [  nan  1.25   nan  0.25 -0.75 -0.75]
+ [-0.4  -1.4  -0.4   1.6    nan  0.6 ]]
+sim(0, 4) = -0.868
 ```
 
