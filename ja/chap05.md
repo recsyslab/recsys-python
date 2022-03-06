@@ -285,7 +285,10 @@ S =
 
 ## 嗜好予測
 
+対象ユーザ$$u$$の対象アイテム$$i$$に対する予測評価値$$\hat{r}_{u,i}$$は次式で求められる。
+
 $$
+\displaystyle
 \hat{r}_{u,i} = 
  \begin{cases}
   \frac{\sum_{j \in I_{u}^{i}} \mathrm{sim}(i, j) \cdot r_{u,j}}{\sum_{j \in I_{u}^{i}} \mid \mathrm{sim}(i,j) \mid} & (I_{u}^{i} \neq \emptyset) \\
