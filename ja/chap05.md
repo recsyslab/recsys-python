@@ -70,7 +70,6 @@ def cos(i, j):
     
     # アイテムiとアイテムjのコサイン類似度
     【課題04】
-    print('cos({}, {}) = {:.3f} / ({:.3f} * {:.3f}) = {:.3f}'.format(i, j, num, den_i, den_j, cosine))
 
     return cosine
 ```
@@ -125,5 +124,71 @@ cos(0, 4) = 0.996
 3. `numpy.sqrt()`を使う。
 4. 得られたコサイン類似度を`cosine`に代入する。
 
+## 調整コサイン類似度
+評価値行列$$\boldsymbol{R}$$の平均中心化評価値行列$$\boldsymbol{R}^{'}$$は次式のとおりとなる。
 
+$$
+\boldsymbol{R}^{'} = \left[
+            \begin{array}{rrrrrr}
+                     &  1.5  &  0.5 & -1.5  & -0.5  &       \\
+                 1   &  1    &  0   &       & -1    & -1    \\
+                 0.5 &       &  1.5 & -0.5  & -1.5  &       \\
+                     &  1.25 &      &  0.25 & -0.75 & -0.75 \\
+                -0.4 & -1.4  & -0.4 &  1.6  &       &  0.6
+            \end{array}
+        \right]
+$$
+
+アイテム$$i$$とアイテム$$j$$のコサイン類似度$$\mathrm{cos}(i, j)$$は次式で定義される。
+
+$$
+\mathrm{cos}(i, j) = \frac{\sum_{u \in U_{i,j}} r_{u,i} r_{u,j}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{2}}}
+$$
+
+```
+def cos(i, j):
+    """
+    評価値行列Rにおいてアイテムiとアイテムjのコサイン類似度を算出する。
+
+    Parameters
+    ----------
+    i : int
+        アイテムi
+    j : int
+        アイテムj
+
+    Returns
+    -------
+    cosine : float
+        コサイン類似度
+    """
+    # アイテムiを評価済みのユーザ集合
+    【課題01】
+    print('U{} = {}'.format(i, Ui))
+    # アイテムjを評価済みのユーザ集合
+    【課題02】
+    print('U{} = {}'.format(j, Uj))
+    # アイテムi、アイテムjの両方を評価済みのユーザ集合
+    【課題03】
+    print('U{}{} = {}'.format(i, j, Uij))
+    
+    # アイテムiとアイテムjのコサイン類似度
+    【課題04】
+
+    return cosine
+```
+
+```python
+i = 0
+j = 4
+cosine = cos(i, j)
+print('cos({}, {}) = {:.3f}'.format(i, j, cosine))
+```
+
+```python
+U0 = [1 2 4]
+U4 = [0 1 2 3]
+U04 = [1 2]
+cos(0, 4) = 0.996
+```
 
