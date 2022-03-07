@@ -365,3 +365,86 @@ DuL001 =
  ★★
  1. `get_ginis()`関数を呼ぶ。
  2. `min()`を使う。
+
+## 嗜好予測
+
+次の関数は、訓練データ`DL`から決定木を学習する関数`train(DL, key)`および対象ユーザ`u`の対象アイテム`i`の予測評価値を返す関数`predict(u, i, key)`である。
+
+```python
+def train(DL, key=0):
+    """
+    訓練データDLから決定木を学習する。
+    
+    Parameters
+    ----------
+    DL : ndarray
+        訓練データDL
+    key : int
+        キー値
+    """
+    if len(DL) <= 0:
+        return
+    elif np.count_nonzero(DL[:,-1]==-1) <= 0:
+        dtree[key] = '+1'
+        return
+    elif np.count_nonzero(DL[:,-1]==+1) <= 0:
+        dtree[key] = '-1'
+        return
+        
+    ginis = get_ginis(DL)
+    k = min(ginis, key=ginis.get)
+    dtree[key] = k
+    DL0 = DL[DL[:,k] == 0]
+    DL1 = DL[DL[:,k] == 1]
+    train(DL0, key * 2 + 1)
+    train(DL1, key * 2 + 2)
+
+def predict(u, i, key=0):
+    """
+    対象ユーザuの対象アイテムiの予測評価値を返す。
+    
+    Parameters
+    ----------
+    u : int
+        対象ユーザuのインデックス（ダミー）
+    i : int
+        対象アイテムiのインデックス
+    key : int
+        キー値
+
+    Returns
+    -------
+    int
+        予測評価値
+    """
+    if type(dtree[key]) == str: return int(dtree[key])
+    k = dtree[key]
+    if x[i,k] == 0:
+        return predict(u, i, key * 2 + 1)
+    elif x[i,k] == 1:
+        return predict(u, i, key * 2 + 2)
+```
+
+### 10 予測対象データに対する嗜好予測
+予測対象データ$$D_{u}^{U}$$内の各アイテム$$i$$について予測評価値$\hat{r}_{u,i}$$を求め、`i: predict(u, i)`を対とした辞書を生成するコードを作成しなさい。生成した辞書を`ruU_pred`とすること。
+
+コード
+```python
+dtree = {}
+train(DuL)
+print('dtree = {}'.format(dtree))
+
+u = 0
+【問題10】
+print('ruU_pred = {}'.format(ruU_pred))
+```
+
+結果
+```
+dtree = {0: 2, 1: 0, 3: 3, 7: 5, 15: '+1', 16: '-1', 8: '+1', 4: '+1', 2: '-1'}
+ruU_pred = {10: 1, 11: -1, 12: -1}
+```
+
+1. 辞書内包表記を使う。
+2. `predict()`関数を呼ぶ。
+
