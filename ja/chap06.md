@@ -50,17 +50,33 @@ print()
 ## 分散共分散行列
 
 
-### 01 各特徴量の平均値
-各特徴量$$x_{k}$$の平均値$$\overline{x}_{k}$$を求めるコードを書きなさい。
+### 01 特徴量kの平均値
+特徴量$$k$$の平均値$$\overline{x}_{k}$$を求めるコードを書きなさい。
+
+コード
+```python
+# 特徴量kの平均値
+k = 0
+【問題01】
+print('x{}_mean = {:.3f}'.format(k, xk_mean))
+```
+
+結果
+```
+x0_mean = 4.846
+```
 
 ★
 1. `numpy.mean()`を使う。
-2. 得られた`ndarray`を`x_mean`に代入する。
+2. 得られた値を`xk_mean`とする。
+
+### 02 すべての特徴量の平均値
+すべての特徴量の平均値をまとめて求めるコードを書きなさい。
 
 コード
 ```python
 # 各特徴量の平均値
-【問題01】
+【問題02】
 print('x_mean = {}'.format(x_mean))
 ```
 
@@ -69,20 +85,40 @@ print('x_mean = {}'.format(x_mean))
 x_mean =  [4.846 3.923 5.   ]
 ```
 
+★
+1. `numpy.mean()`を使う。
+2. 得られた`ndarray`を`x_mean`とする。
 
 
-```python
-# 各特徴量の分散
+
+# 特徴量kの分散
+# 03
 k = 0
 sk2 = np.array((1 / I.size) * np.sum([(x[i,k] - x_mean[k])**2 for i in I]))
 print('s{}^2 = {:.3f}'.format(k, sk2))
+### 02 各特徴量の分散
+各特徴量$$k$$の分散$$s_{k}^{2}$$を求めるコードを書きなさい。
+
+1. 二重のリスト内包表記を使う。
+2. `numpy.sum()`を使う。
+3. 
+
+コード
+```python
+# 各特徴量の分散
 d = x.shape[1]
-s2 = np.array([(1 / I.size) * np.sum([(x[i,k] - x_mean[k])**2 for i in I]) for k in range(0, d)])
-#s2 = np.array([(1 / I.size) * np.sum((x[:,k] - x_mean[k])**2) for k in range(0, d)])
-#s2 = np.array((1 / I.size) * np.sum((x - x_mean)**2, axis=0))
-#s2 = np.var(x, axis=0)
-print('s^2 = ', s2)
-print()
+【問題02】
+print('s^2 = {}'.format(s2))
+```
+
+結果
+```
+s^2 = [3.361 3.763 4.769]
+```
+
+
+
+
 
 # 各特徴量の標準化
 i = 0
