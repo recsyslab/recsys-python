@@ -102,7 +102,7 @@ def G(DL):
 
     Returns
     -------
-    gini : float
+    float
         ジニ係数
         ただし、DLに事例が含まれていないときは0
     """
@@ -152,7 +152,7 @@ $$
 G(D^{L}_{u} \rightarrow [D^{L0}_{u}, D^{L1}_{u}]) = \frac{\mid D^{L0}_{u} \mid G(D^{L0}_{u}) + \mid D^{L1}_{u} \mid G(D^{L1}_{u})}{\mid D^{L0}_{u} \mid + \mid D^{L1}_{u} \mid}
 $$
 
-次の関数は、訓練データを$$D_{u}^{L0}$$と$$D_{u}^{L1}$$`DL`に分割したときののジニ係数を返す関数`G_partitioned(DL0, DL1)`である。
+次の関数は、訓練データを`DL0`と`DL1`に分割したときののジニ係数を返す関数`G_partitioned(DL0, DL1)`である。
 
 ```python
 def G_partitioned(DL0, DL1):
@@ -168,7 +168,7 @@ def G_partitioned(DL0, DL1):
 
     Returns
     -------
-    gini : float
+    float
         ジニ係数
     """
     【問題06】
@@ -237,9 +237,76 @@ print('G(DuL → [DuL0, DuL1]) = {:.3f}'.format(G_partitioned(DuL0, DuL1)))
 G(DuL → [DuL0, DuL1]) = 0.267
 ```
 
+★★
 1. `ndarray.shape`を使う。
 2. `G(DL)`関数を呼ぶ。
 
+## 決定木の学習
 
+次の関数は、入力された訓練データ`DL`を各特徴量で分割したときの（特徴量のインデックス: ジニ係数）を対にした辞書を返す関数`get_ginis(DL)`である。
+
+```python
+def get_ginis(DL):
+    """
+    訓練データDLを各特徴量で分割したときの（特徴量のインデックス: ジニ係数）を対にした辞書を返す。
+    
+    Parameters
+    ----------
+    DL : ndarray
+        訓練データDL
+
+    Returns
+    -------
+    dict
+        （特徴量のインデックス: ジニ係数）を対にした辞書
+    """
+    ginis = {}
+    for k in range(0, x.shape[1]):
+        DL0 = DL[DL[:,k]==0]
+        DL1 = DL[DL[:,k]==1]
+        ginis[k] = G_partitioned(DL0, DL1)
+    return ginis
+```
+
+### 07 レベル0の選択基準
+`get_ginis()`関数から得られた`ginis`からジニ係数が最小となる特徴量のインデックスを取得するコードを作成しなさい。得られた値を`k0`とすること。
+
+コード
+```python
+# レベル0の選択基準
+ginis = get_ginis(DuL)
+print('ginis = ')
+for k, gini in ginis.items():
+    print('{}: {:.3f}'.format(k, gini), end=', ')
+print()
+【問題07】
+print('k0 = {}'.format(k0))
+DuL0 = DuL[DuL[:,k0] == 0]
+DuL1 = DuL[DuL[:,k0] == 1]
+print('DuL0 = \n', DuL0)
+print('DuL1 = \n', DuL1)
+```
+
+結果
+```bash
+ginis = 
+0: 0.267, 1: 0.450, 2: 0.171, 3: 0.476, 4: 0.476, 5: 0.467, 
+k0 = 2
+DuL0 = 
+ [[ 1.  0.  0.  0.  1.  0.  1.]
+ [ 0.  1.  0.  0.  1.  0.  1.]
+ [ 1.  1.  0.  0.  1.  0.  1.]
+ [ 1.  0.  0.  1.  1.  0.  1.]
+ [ 1.  0.  0.  0.  0.  1.  1.]
+ [ 0.  1.  0.  1.  0.  1.  1.]
+ [ 0.  1.  0.  0.  1.  1. -1.]]
+DuL1 = 
+ [[ 0.  0.  1.  0.  1.  0. -1.]
+ [ 0.  0.  1.  1.  1.  0. -1.]
+ [ 0.  0.  1.  0.  0.  1. -1.]]
+```
+
+★★
+1. `min()`を使う。
 
 
