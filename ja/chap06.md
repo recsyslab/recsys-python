@@ -59,7 +59,7 @@ print()
 print('x_mean = {}'.format(x_mean))
 ```
 
-```
+```python
 x_mean = [4.846 3.923]
 ```
 
