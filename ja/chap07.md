@@ -344,3 +344,51 @@ $$
 
 ★
 1. `ndarray.shape`を使う。
+
+## 推薦
+
+$$
+\frac{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1)}{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1) + P(R = -1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = -1)}
+$$
+                
+関数
+```python
+def score(u, i):
+    """
+    スコア関数：ユーザuのアイテムiに対するスコアを返す。
+
+    Parameters
+    ----------
+    u : int
+        ユーザuのインデックス（ダミー）
+    i : int
+        アイテムiのインデックス
+
+    Returns
+    -------
+    float
+        スコア
+    """
+    _, _, prob_p = P(i, +1)
+    _, _, prob_n = P(i, -1)
+    【問題09】
+    return scr
+```
+
+コード
+```python
+# 各対象アイテムのスコア
+u = 0
+scores = {i: score(u, i) for i in IU}
+print('scores = ')
+for i, scr in scores.items():
+    print('{}: {:.3f}'.format(i, scr))
+```
+
+結果
+```bash
+scores = 
+10: 0.965
+11: 0.055
+12: 0.189
+```
