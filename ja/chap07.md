@@ -5,6 +5,16 @@
 
 ```python
 import numpy as np
+from fractions import Fraction
+
+# 上位K件
+TOP_K = 3
+# スムージングパラメタ
+ALPHA = 1
+# クラス数
+N = 2
+# 特徴量kがとりうる値のユニーク数
+M = [2, 2, 2, 2, 2, 2]
 
 # 評価履歴
 Du = np.array([
@@ -69,3 +79,13 @@ print('|DuL+| = {}'.format(len(DuL[ruL==+1])))
 print('|DuL-| = {}'.format(len(DuL[ruL==-1])))
 print()
 ```
+
+## 事前確率
+
+訓練データ$$D_{u}^{L}$$において、ユーザ$$u$$が好む確率は次式で表される。
+
+$$
+P(R = +1) = \frac{\mid D^{L+}_{u} \mid}{\mid D^{L}_{u} \mid}
+$$
+
+
