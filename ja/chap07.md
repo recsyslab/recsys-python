@@ -346,11 +346,14 @@ $$
 1. `ndarray.shape`を使う。
 
 ## 推薦
+スコア関数は次式のように定義される。
 
 $$
-\frac{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1)}{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1) + P(R = -1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = -1)}
+\mathrm{score}(u, i) = \frac{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1)}{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1) + P(R = -1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = -1)}
 $$
-                
+
+次の関数は、ユーザ`u`のアイテム`i`に対するスコアを返す関数である。
+
 関数
 ```python
 def score(u, i):
@@ -369,8 +372,6 @@ def score(u, i):
     float
         スコア
     """
-    _, _, prob_p = P(i, +1)
-    _, _, prob_n = P(i, -1)
     【問題09】
     return scr
 ```
@@ -392,3 +393,11 @@ scores =
 11: 0.055
 12: 0.189
 ```
+
+### 09
+ユーザ$$u$$のアイテム$$i$$に対するスコアを求めるコードを書きなさい。得られた値を`scr`とすること。
+
+★★
+1. `P()`関数を呼ぶ。
+
+
