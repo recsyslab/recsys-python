@@ -80,6 +80,17 @@ print('|DuL-| = {}'.format(len(DuL[ruL==-1])))
 print()
 ```
 
+## 問題設定
+アイテム$$i$$ついて好む確率、嫌う確率はそれぞれ次式のように表される。
+
+$$
+P(R = +1 \mid x_{i,1}, \ldots, x_{i,d})
+$$
+
+$$
+P(R = -1 \mid x_{i,1}, \ldots, x_{i,d})
+$$
+
 ## 事前確率
 
 訓練データ$$D_{u}^{L}$$において、ユーザ$$u$$が好む確率は次式で表される。
@@ -112,8 +123,8 @@ def P_prior(r):
     float
         事前確率
     """
-    num = DuL[ruL==r].shape[0] + ALPHA
-    den = DuL.shape[0] + ALPHA * N
+    【問題01】
+    【問題02】
     prob = Fraction(num, den, _normalize=False)
     return prob
 ```
@@ -129,6 +140,62 @@ print('P(R={:+}) = {}'.format(r, P_prior(r)))
 
 結果
 ```bash
-P(R=+1) = 7/12
-P(R=-1) = 5/12
+P(R=+1) = 6/10
+P(R=-1) = 4/10
 ```
+
+## 01 評価値がrとなる事前確率（分子）
+事前確率の式の分子を求めるコードを書きなさい。得られた値を`num`とすること。
+
+★
+1. `ndarray.shape`を使う。
+2. 行列のブールインデックス参照を使う。
+
+## 02 評価値がrとなる事前確率（分母）
+事前確率の式の分母を求めるコードを書きなさい。得られた値を`den`とすること。
+
+★
+1. `ndarray.shape`を使う。
+
+## 特徴量ごとの条件付き確率
+
+
+
+関数
+```python
+def P_cond(i, k, r):
+    """
+    評価値がrとなる条件下でアイテムiの特徴量kの条件付き確率を返す。
+
+    Parameters
+    ----------
+    i : int
+        アイテムiのインデックス
+    k : int
+        特徴量kのインデックス
+    r : int
+        評価値
+
+    Returns
+    -------
+    float
+        条件付き確率
+    """
+    num = DuL[ruL==r][xL[:,k][ruL==r]==x[i,k]].shape[0] + ALPHA
+    den = DuL[ruL==r].shape[0] + ALPHA * M[k]
+    prob = Fraction(num, den, _normalize=False)
+    return prob
+```
+
+コード
+```python
+# 特徴量ごとの条件付き確率
+i = 10
+k = 0
+r = +1
+print('P(X{}=x{},{}|R={:+}) = {}'.format(k, i, k, r, P_cond(i, k, r)))
+r = -1
+print('P(X{}=x{},{}|R={:+}) = {}'.format(k, i, k, r, P_cond(i, k, r)))
+```
+
+
