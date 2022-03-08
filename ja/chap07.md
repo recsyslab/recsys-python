@@ -10,7 +10,7 @@ from fractions import Fraction
 # 上位K件
 TOP_K = 3
 # スムージングパラメタ
-ALPHA = 1
+ALPHA = 0
 # クラス数
 N = 2
 # 特徴量kがとりうる値のユニーク数
@@ -88,4 +88,47 @@ $$
 P(R = +1) = \frac{\mid D^{L+}_{u} \mid}{\mid D^{L}_{u} \mid}
 $$
 
+同様に、ユーザ$$u$$が嫌う確率は次式で表される。
 
+$$
+P(R = -1) = \frac{\mid D^{L-}_{u} \mid}{\mid D^{L}_{u} \mid}
+$$
+
+次の関数は、評価値が`r`となる事前確率を返す関数`P_prior(r)`である。
+
+関数
+```python
+def P_prior(r):
+    """
+    評価値がrとなる事前確率を返す。
+
+    Parameters
+    ----------
+    r : int
+        評価値
+
+    Returns
+    -------
+    float
+        事前確率
+    """
+    num = DuL[ruL==r].shape[0] + ALPHA
+    den = DuL.shape[0] + ALPHA * N
+    prob = Fraction(num, den, _normalize=False)
+    return prob
+```
+
+コード
+```python
+# 事前確率
+r = +1
+print('P(R={:+}) = {}'.format(r, P_prior(r)))
+r = -1
+print('P(R={:+}) = {}'.format(r, P_prior(r)))
+```
+
+結果
+```bash
+P(R=+1) = 7/12
+P(R=-1) = 5/12
+```
