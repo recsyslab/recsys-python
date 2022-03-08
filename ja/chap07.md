@@ -128,7 +128,7 @@ def P_prior(r):
 
     Returns
     -------
-    float
+    Fraction
         事前確率
     """
     【問題01】
@@ -152,14 +152,14 @@ P(R=+1) = 6/10
 P(R=-1) = 4/10
 ```
 
-## 01 評価値がrとなる事前確率（分子）
+### 01 評価値がrとなる事前確率（分子）
 事前確率の式の分子を求めるコードを書きなさい。得られた値を`num`とすること。
 
 ★
 1. `ndarray.shape`を使う。
 2. 行列のブールインデックス参照を使う。
 
-## 02 評価値がrとなる事前確率（分母）
+### 02 評価値がrとなる事前確率（分母）
 事前確率の式の分母を求めるコードを書きなさい。得られた値を`den`とすること。
 
 ★
@@ -197,11 +197,11 @@ def P_cond(i, k, r):
 
     Returns
     -------
-    float
+    Fraction
         条件付き確率
     """
-    num = DuL[ruL==r][xL[:,k][ruL==r]==x[i,k]].shape[0] + ALPHA
-    den = DuL[ruL==r].shape[0] + ALPHA * M[k]
+    【問題03】
+    【問題04】
     prob = Fraction(num, den, _normalize=False)
     return prob
 ```
@@ -221,5 +221,75 @@ print('P(X{}=x{},{}|R={:+}) = {}'.format(k, i, k, r, P_cond(i, k, r)))
 ```bash
 P(X0=x10,0|R=+1) = 4/6
 P(X0=x10,0|R=-1) = 0/4
+```
+
+### 03 特徴量kに関する条件付き確率（分子）
+特徴量kに関する条件付き確率の式の分子を求めるコードを書きなさい。得られた値を`num`とすること。
+
+★★★
+1. `ndarray.shape`を使う。
+2. ブールインデックス参照を使う。
+
+### 04 特徴量kに関する条件付き確率（分母）
+特徴量kに関する条件付き確率の式の分母を求めるコードを書きなさい。得られた値を`den`とすること。
+
+★
+1. `ndarray.shape`を使う。
+
+## 嗜好予測
+
+
+関数
+```python
+def P(i, r):
+    """
+    アイテムiの評価値がrとなる確率を返す。
+
+    Parameters
+    ----------
+    i : int
+        アイテムiのインデックス
+    r : int
+        評価値
+
+    Returns
+    -------
+    Fraction
+        事前確率
+    list of Fraction
+        各特徴量に関する条件付き確率
+    float
+        好き嫌いの確率
+    """
+    pp = P_prior(r)
+#    pk = []
+#    for k in range(0, x.shape[1]):
+#        pk.append(P_cond(i, k, r))
+    pk = [P_cond(i, k, r) for k in range(0, x.shape[1])]
+    prob = float(pp * np.prod(pk))
+    return pp, pk, prob
+```
+
+コード
+```python
+# 好き嫌いの確率
+i = 10
+r = +1
+pp, pk, prob = P(i, r)
+left = 'P(R={:+}|'.format(r) + ','.join(map(str, map(int, x[i]))) + ')'
+right = str(pp) + '×' + '×'.join(map(str, pk))
+print('{} = {} = {:.3f}'.format(left, right, prob))
+
+r = -1
+pp, pk, prob = P(i, r)
+left = 'P(R={:+}|'.format(r) + ','.join(map(str, map(int, x[i]))) + ')'
+right = str(pp) + '×' + '×'.join(map(str, pk))
+print('{} = {} = {:.3f}'.format(left, right, prob))
+```
+
+結果
+```bash
+P(R=+1|1,1,0,1,1,0) = 6/10×4/6×3/6×6/6×2/6×4/6×4/6 = 0.030
+P(R=-1|1,1,0,1,1,0) = 4/10×0/4×1/4×1/4×1/4×3/4×2/4 = 0.000
 ```
 
