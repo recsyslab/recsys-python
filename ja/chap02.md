@@ -91,7 +91,7 @@ I = [0 1 2 3 4 5]
 2. `ndarray.shape`を使う。
 
 ### 04 ユーザ数
-ユーザ数$$\mid U \mid$$を取得するコードを書きなさい。
+`R`からユーザ数$$\mid U \mid$$を取得し、表示するコードを書きなさい。
 
 結果
 ```bash
@@ -102,7 +102,7 @@ I = [0 1 2 3 4 5]
 1. `ndarray.size`を使う。
 
 ### 05 アイテム数
-アイテム数$$\mid I \mid$$を取得するコードを書きなさい。
+`R`からアイテム数$$\mid I \mid$$を取得し、表示するコードを書きなさい。
 
 結果
 ```bash
@@ -113,7 +113,7 @@ I = [0 1 2 3 4 5]
 1. `ndarray.size`を使う。
 
 ### 06 評価値
-`R`からユーザ$$u$$のアイテム$$i$$に対する評価値$$r_{u,i}$$を取得するコードを書きなさい。得られた値を$$rui$$とすること。
+`R`からユーザ$$u$$のアイテム$$i$$に対する評価値$$r_{u,i}$$を取得するコードを書きなさい。得られた値を`rui`とすること。
 
 コード
 ```python
@@ -150,9 +150,57 @@ Rの全要素数 = 30
 
 ★
 1. `ndarray.size`を使う。
-2. `print()`を使う。
 
+### 08 観測されているか否かの判定
+`R`において、観測値の要素には`True`を、欠損値の要素には`False`を入れたブール値配列を生成し、表示するコードを書きなさい。
 
+結果
+```bash
+観測値 = 
+[[False  True  True  True  True False]
+ [ True  True  True False  True  True]
+ [ True False  True  True  True False]
+ [False  True False  True  True  True]
+ [ True  True  True  True False  True]]
+```
 
+★
+1. `numpy.isnan()`を使う。
+2. `~`演算子を使う。
+
+### 09 評価値行列の観測値数
+`R`における観測値数$$\mid R \mid$$を取得し、表示するコードを書きなさい。
+
+結果
+```bash
+|R| = 22
+```
+
+★★
+1. `numpy.isnan()`を使う。
+2. `~`演算子を使う。
+3. `numpy.count_nonzero()`を使う。
+
+★★
+1. `numpy.isnan()`を使う。
+2. `~`演算子を使う。
+3. `numpy.size`を使う。
+4. ブール値インデキシングを使う。
+
+### 10 評価値行列の疎性
+`R`の疎性$$\mathrm{sparsity}$$を求めるコードを書きなさい。得られた値を`sparsity`とすること。
+
+コード
+```python
+# 評価値行列の疎性
+【    問10    】
+print('sparsity = {:.3f}'.format(sparsity))
+```
+
+結果
+```
+sparsity = 0.267
+```
+```
 
 
