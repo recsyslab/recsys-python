@@ -1,13 +1,18 @@
 <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['\$','\$'],['\\(','\\)']],processEscapes:true},CommonHTML: {matchFontHeight:false}});</script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-## 第2章 評価値行列
+# 第2章 評価値行列
 
 ## 準備
+次のコードを書きなさい。
+
+```python
+import numpy as np
+```
 
 ## 評価値行列
 
-次の行列$$\boldsymbol{R}$$は評価値行列である。$$\boldsymbol{R}$$の各行は各ユーザ$$u \in U$$を表し、各列は各アイテム$$i \in I$$を表す。$$\boldsymbol{R}$$の$$(u, i)$$成分はユーザ$$u$$がアイテム$$i$$に与えた評価値$$r_{u,i}$$を表す。ただし、$$?$$は欠損値であることを表す。
+次の行列$$\boldsymbol{R}$$は評価値行列である。$$\boldsymbol{R}$$の$$u$$行目はユーザ$$u \in U$$を表し、$$i$$列目はアイテム$$i \in I$$を表す。$$\boldsymbol{R}$$の$$(u, i)$$成分はユーザ$$u$$がアイテム$$i$$に与えた評価値$$r_{u,i}$$を表す。ただし、$$?$$は欠損値であることを表す。このとき、次の問いに答えなさい。
 
 $$
 \boldsymbol{R} = \left[
@@ -21,21 +26,63 @@ $$
 \right]
 $$
 
-### 21 評価値行列の生成 | 行列の生成
-$$\boldsymbol{R}$$を`ndarray`の行列`R`として生成しなさい。
+### 01 評価値行列の生成
+$$\boldsymbol{R}$$を`ndarray`として生成するコードを書きなさい。得られた`ndarray`を`R`とすること。
+
+コード
+```python
+# 評価値行列
+【    問01    】
+print('R = \n{}'.format(R))
+```
+
+結果
+```bash
+R = 
+[[nan  4.  3.  1.  2. nan]
+ [ 5.  5.  4. nan  3.  3.]
+ [ 4. nan  5.  3.  2. nan]
+ [nan  3. nan  2.  1.  1.]
+ [ 2.  1.  2.  4. nan  3.]]
+```
 
 ★
-1. `numpy.array()`を使う。
+1. `numpy.nan`を使う。
+2. `numpy.array()`を使う。
 
-### 22 評価値行列からユーザ集合の取得 | ベクトルの生成
-`R`の各行のインデックスは各ユーザ$$u \in U$$のユーザIDに対応する。ユーザ集合$$U$$を、ユーザIDを要素とした`ndarray`のベクトル`U`として生成しなさい。
+### 02 ユーザ集合
+`R`の各行のインデックスは各ユーザ$$u$$のユーザIDに対応する。ユーザ集合$$U$$（ユーザIDを要素としたベクトル）を`ndarray`として生成するコードを書きなさい。得られた`ndarray`を`U`とすること。
+
+コード
+```python
+# ユーザ集合
+【    問02    】
+print('U = {}'.format(U))
+```
+
+結果
+```bash
+U = [0 1 2 3 4]
+```
 
 ★
 1. `numpy.arange()`を使う。
 2. `ndarray.shape`を使う。
 
-### 23 評価値行列からアイテム集合の取得 | ベクトルの生成
-`R`の各列のインデックスは各アイテム$$i \in I$$のアイテムIDに対応する。アイテム集合$$I$$を、アイテムIDを要素とした`ndarray`のベクトル`I`として生成しなさい。
+### 03 アイテム集合
+`R`の各列のインデックスは各アイテム$$i$$のアイテムIDに対応する。アイテム集合$$I$$（アイテムIDを要素としたベクトル）を`ndarray`として生成するコードを書きなさい。得られた`ndarray`を`I`とすること。
+
+コード
+```python
+# ユーザ集合
+【    問02    】
+print('I = {}'.format(I))
+```
+
+結果
+```bash
+I = [0 1 2 3 4 5]
+```
 
 ★
 1. `numpy.arange()`を使う。
