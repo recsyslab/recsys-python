@@ -123,6 +123,48 @@ $$
 \mathrm{cos}(\boldsymbol{p}_{u}, \boldsymbol{x}_{i}) = \frac{\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}}{\| \boldsymbol{p}_{u} \| \| \boldsymbol{x}_{i} \|}
 $$
 
+次の関数`cos(pu, xi)`は、ユーザプロファイル`pu`とアイテム`i`の特徴ベクトル`xi`のコサイン類似度を返す関数である。関数の仕様を満たすように、次の問いに答えなさい。
+
+関数
+```python
+def cos(pu, xi):
+    """
+    コサイン類似度関数：ユーザプロファイルpuとアイテムiの特徴ベクトルxiのコサイン類似度を返す。
+
+    Parameters
+    ----------
+    pu : ndarray
+        ユーザuのユーザプロファイル
+    xi : ndarray
+        アイテムiの特徴ベクトル
+
+    Returns
+    -------
+    float
+        コサイン類似度
+    """
+    【    問04    】
+    【    問05    】
+    【    問06    】
+    cosine = num / (den_u * den_i)
+    return cosine
+```
+
+コード
+```python
+u = 0
+i = 7
+print('cos(p{}, x{}) = {:.3f}'.format(u, i, cos(pu, x[i])))
+i = 11
+print('cos(p{}, x{}) = {:.3f}'.format(u, i, cos(pu, x[i])))
+```
+
+結果
+```bash
+cos(p0, x7) = 0.997
+cos(p0, x11) = 0.783
+```
+
 ### 05 ベクトルの内積の算出 | ベクトルの内積
 $$\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}$$は二つのベクトル$$\boldsymbol{p}_{u}$$と$$\boldsymbol{x}_{i}$$の内積であり、次式のように表せる。
 
