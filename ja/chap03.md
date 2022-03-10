@@ -4,7 +4,7 @@
 # 第3章 内容ベース推薦システム | 類似度に基づく推薦
 
 ### 準備
-次のコードを入力しなさい。
+次のコードを書きなさい。
 
 ```python
 import numpy as np
@@ -12,7 +12,6 @@ import numpy as np
 # 上位K件
 TOP_K = 3
 
-# 評価履歴
 Du = np.array([
             [5, 3, +1],
             [6, 2, +1],
@@ -28,34 +27,14 @@ Du = np.array([
             [4, 7, np.nan],
             [4, 4, np.nan],
 ])
-print('Du = \n{}'.format(Du))
-print()
-
-# アイテム集合
 I = np.arange(Du.shape[0])
-print('I = {}'.format(I))
-print()
-
-# アイテムの特徴ベクトル
 x = Du[:,:-1]
-print('x = \n{}'.format(x))
-print()
-
-# 評価値
 ru = Du[:,-1]
-print('ru = {}'.format(ru))
-print()
 
-# ユーザuが評価済みのアイテム集合
 Iu = I[~np.isnan(ru)]
-print('Iu = {}'.format(Iu))
-# ユーザuが「好き」と評価したアイテム集合
 Iup = I[ru==+1]
-print('Iu+ {}= '.format(Iup))
-# ユーザuが「嫌い」と評価したアイテム集合
 Iun = I[ru==-1]
-print('Iu- {}= '.format(Iun))
-print()
+Iu_not = np.setdiff1d(I, Iu)
 ```
 
 ## ユーザプロファイル
