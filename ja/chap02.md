@@ -453,7 +453,7 @@ ru_mean =
 ★
 1. `ndarray.reshape()`を使う。
 
-### 21
+### 21 平均中心化評価値行列
 評価値行列$$\boldsymbol{R}$$の平均中心化評価値行列$$\boldsymbol{R}^{'}$$を`ndarray`として生成するコードを書きなさい。得られた`ndarray`を`R2`とすること。
 
 コード
