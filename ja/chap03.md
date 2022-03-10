@@ -123,6 +123,18 @@ $$
 \mathrm{cos}(\boldsymbol{p}_{u}, \boldsymbol{x}_{i}) = \frac{\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}}{\| \boldsymbol{p}_{u} \| \| \boldsymbol{x}_{i} \|}
 $$
 
+ここで、$$\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}$$は二つのベクトル$$\boldsymbol{p}_{u}$$と$$\boldsymbol{x}_{i}$$の内積であり、次式のように表される。
+
+$$
+\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i} = \sum_{k=1}^{d} p_{u,k} x_{i,k}
+$$
+
+$$d$$はベクトルの次元数である。また、$$\| \boldsymbol{p}_{u} \|$$はベクトル$$\boldsymbol{p}_{u}$$のノルム（大きさ）であり、次式のように表される。
+
+$$
+\| \boldsymbol{p}_{u} \| = \sqrt{\boldsymbol{p}_{u} \cdot \boldsymbol{p}_{u}} = \sqrt{\sum_{k=1}^{d} p_{u,k}^{2}}
+$$
+
 次の関数`cos(pu, xi)`は、ユーザプロファイル`pu`とアイテム`i`の特徴ベクトル`xi`のコサイン類似度を返す関数である。関数の仕様を満たすように、次の問いに答えなさい。
 
 関数
@@ -165,14 +177,8 @@ cos(p0, x7) = 0.997
 cos(p0, x11) = 0.783
 ```
 
-### 05 ベクトルの内積の算出 | ベクトルの内積
-$$\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}$$は二つのベクトル$$\boldsymbol{p}_{u}$$と$$\boldsymbol{x}_{i}$$の内積であり、次式のように表せる。
-
-$$
-\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i} = \sum_{k=1}^{d} p_{u,k} x_{i,k}
-$$
-
-ここで、$$d$$はベクトルの次元数である。内積$$\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}$$を求めなさい。
+### 04 ベクトルの内積
+内積$$\boldsymbol{p}_{u} \cdot \boldsymbol{x}_{i}$$を求めなさい。
 
 ★
 1. `@`演算子を使う。
@@ -192,13 +198,7 @@ $$
 4. `numpy.sum()`を使う。
 
 ### 06 ベクトルのノルムの算出 | ベクトルのノルム
-$$\| \boldsymbol{p}_{u} \|$$はベクトル$$\boldsymbol{p}_{u}$$のノルム（大きさ）であり、次式のように表せる。
-
-$$
-\| \boldsymbol{p}_{u} \| = \sqrt{\boldsymbol{p}_{u} \cdot \boldsymbol{p}_{u}} = \sqrt{\sum_{k=1}^{d} p_{u,k}^{2}}
-$$
-
-ここで、$$d$$はベクトルの次元数である。ノルム$$\| \boldsymbol{p}_{u} \|$$を求めなさい。
+ノルム$$\| \boldsymbol{p}_{u} \|$$を求めなさい。
 
 ★
 1. `numpy.linalg.norm()`を使う。
