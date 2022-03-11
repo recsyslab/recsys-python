@@ -156,8 +156,11 @@ def cos(pu, xi):
         コサイン類似度
     """
     【    問04    】
+    print('num = {}'.format(num))
     【    問05    】
+    print('den_u = {:.3f}'.format(den_u))
     【    問06    】
+    den_i = np.linalg.norm(xi)
     cosine = num / (den_u * den_i)
     return cosine
 ```
@@ -174,7 +177,13 @@ print('cos(p{}, x{}) = {:.3f}'.format(u, i, cos(pu, x[i])))
 
 結果
 ```bash
+num = 24.0
+den_u = 5.385
+den_i = 4.472
 cos(p0, x7) = 0.997
+num = 34.0
+den_u = 5.385
+den_i = 8.062
 cos(p0, x11) = 0.783
 ```
 
