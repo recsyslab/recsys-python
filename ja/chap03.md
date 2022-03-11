@@ -271,7 +271,7 @@ def order(u, I):
     Parameters
     ----------
     u : int
-        ユーザuのID（ダミー）
+        ユーザuのID
     I : ndarray
         アイテム集合
 
