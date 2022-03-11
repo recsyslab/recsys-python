@@ -342,6 +342,101 @@ predict2(0, 9) = -0.333
 2. `numpy.sum()`を使う。
 
 
+## 推薦
+
+スコア関数$$\mathrm{score}(u, i)$$はユーザ$$u$$がアイテム$$i$$を好む程度をスコアとして返す関数であり、次式のように定義される。
+
+$$
+\mathrm{score}(u, i) = \hat{r}_{u,i}
+$$
+
+このスコア関数を次のコードのとおり定義する。
+
+関数
+```
+def score(u, i):
+    """
+    スコア関数：ユーザuのアイテムiに対するスコアを返す。
+
+    Parameters
+    ----------
+    u : int
+        ユーザuのID
+    i : int
+        アイテムiのID
+
+    Returns
+    -------
+    float
+        スコア
+    """
+    return predict2(u, i)
+```
+
+順序付け関数$$\mathrm{order}(u, I)$$は、アイテム集合$$I$$が与えられたとき、ユーザ$$u$$向けの推薦リストを返す関数である。ここでは、スコア上位$$K$$件のアイテム集合を推薦リストとして返すものとする。ただし、$$\mathrm{score}(u, i) < 0$$となるアイテム$$i$$は推薦リストから除外する。この順序付け関数を次のコードのとおり定義する。
+
+```python
+def order(u, I):
+    """
+    順序付け関数：アイテム集合Iにおいて、ユーザu向けの推薦リストを返す。
+
+    Parameters
+    ----------
+    u : int
+        ユーザuのID
+    I : ndarray
+        アイテム集合
+
+    Returns
+    -------
+    dict
+        (アイテムID: スコア)をペアにした辞書型の推薦リスト
+    """
+    scores = {i: score(u, i) for i in I}
+    【    問09    】
+    rec_list = dict(sorted(scores.items(), key=lambda x:x[1], reverse=True)[:TOP_K])
+    return rec_list
+```
+
+コード
+```python
+u = 0
+rec_list = order(u, Iu_not)
+print('rec_list = ', end='')
+for i, scr in rec_list.items():
+    print('{}: {:.3f}'.format(i, scr), end=', ')
+```
+
+結果
+```bash
+scores = 7: 0.997, 8: 0.983, 9: 0.966, 10: 0.854, 11: 0.783, 12: 0.919, 
+rec_list = 7: 0.997, 8: 0.983, 9: 0.966, 
+```
+
+このとき、関数の仕様を満たすように、次の問いに答えなさい。
+
+### 07 各アイテムに対するスコア
+引数に渡されたアイテム集合$$I$$について、ユーザ$$u$$の各アイテム$$i \in I$$に対するスコア$$\mathrm{score}(u, i)$$を求め、`(i: score(u, i))`をペアとした辞書を生成するコードを書きなさい。生成した辞書を`scores`とすること。
+
+★★
+1. `for`文を使う。
+
+★★★
+1. 辞書内包表記を使う。
+
+### 08 推薦リスト
+`scores`内の`(i: score(u, i))`のペアを`score(u, i)`の降順にソートし、上位`TOP_K`件のリストを生成するコードを書きなさい。得られたリストを辞書に変換したものを`rec_list`とすること。
+
+★★★
+1. `sorted()`を使う。
+2. `dict.items()`を使う。
+3. `lambda`式を使う。
+4. スライシングを使う。
+5. `dict()`を使う。
+
+
+
+
 
 
 
