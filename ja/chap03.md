@@ -161,6 +161,7 @@ def cos(pu, xi):
     print('den_u = {:.3f}'.format(den_u))
     【    問06    】
     den_i = np.linalg.norm(xi)
+    
     cosine = num / (den_u * den_i)
     return cosine
 ```
