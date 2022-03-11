@@ -167,6 +167,7 @@ def cos(pu, xi):
 u = 0
 i = 7
 print('cos(p{}, x{}) = {:.3f}'.format(u, i, cos(pu, x[i])))
+u = 0
 i = 11
 print('cos(p{}, x{}) = {:.3f}'.format(u, i, cos(pu, x[i])))
 ```
