@@ -90,55 +90,20 @@ dist(x7, x3) = 5.000
 
 このとき、関数の仕様を満たすように、次の問いに答えなさい。
 
-### 01 距離関数の定義 | 関数
-関数の仕様を満たすように、次のコードの【ToDo】の箇所を埋めて距離関数を完成させなさい。確認コードを実行したとき、実行結果のとおりの結果が出力されること。
-
-```python
-def dist(xi, xj):
-    """
-    距離関数：アイテムiの特徴ベクトルxiとアイテムjの特徴ベクトルxjのユークリッド距離を算出する。
-
-    Parameters
-    ----------
-    xi : ndarray
-        アイテムiの特徴ベクトル
-    xj : ndarray
-        アイテムjの特徴ベクトル
-
-    Returns
-    -------
-    distance : float
-        ユークリッド距離
-    """
-    【ToDo】
-    return distance
-```
-
-確認コード
-```python
-i = 7
-j = 2
-print('dist(x{}, x{}) = {:.3f}'.format(i, j, dist(x[i], x[j])))
-```
-
-実行結果
-```
-dist(x7, x2) = 1.000
-```
+### 01 ユークリッド距離
+$$\boldsymbol{x}_{i}$$と$$\boldsymbol{x}_{j}$$のユークリッド距離\mathrm{dist}(\boldsymbol{x}_{i}, \boldsymbol{x}_{j})を求めるコードを書きなさい。得られた値を`distance`とすること。
 
 ★★★
 1. `ndarray.size`を使う。
 2. リスト内包表記を使う。
 3. `range()`を使う。
-4. `np.sum()`を使う。
-5. `np.sqrt()`を使う。
+4. `numpy.sum()`を使う。
+5. `numpy.sqrt()`を使う。
 
 ★★★
-1. `ndarray.size`を使わない。
-2. リスト内包表記を使わない。
-3. `range()`を使わない。
-4. `np.sum()`を使う。
-5. `np.sqrt()`を使う。
+1. `numpy.sum()`を使う。
+2. `numpy.sqrt()`を使う。
+4. リスト内包表記を使わない。
 
 ## 近傍アイテム
 
