@@ -8,6 +8,7 @@
 
 ```python
 import numpy as np
+np.set_printoptions(precision=3)
 
 # 上位K件
 TOP_K = 3
