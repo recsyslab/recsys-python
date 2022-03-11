@@ -108,7 +108,7 @@ $$
 2. `numpy.sum()`を使う。
 3. `numpy.sqrt()`を使う。
 
-### 03ピアソンの相関係数の算出（分母右部）
+### 03 ピアソンの相関係数の算出（分母右部）
 ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分母の右部である次式を求めるコードを書きなさい。得られた値を`den_vとすること。
 
 $$
@@ -121,103 +121,64 @@ $$
 3. `numpy.sqrt()`を使う。
 
 
-
-
-
-## 平均中心化評価値行列
-
-次のコードは、評価値行列$$\boldsymbol{R}$を平均中心化評価値行列$$\boldsymbol{R}^{'}$$に変換するためのコードである。各課題に答えなさい。
-
-```python
-ru_mean = 【課題10】
-print('ru_mean = {}'.format(ru_mean))
-
-# 平均中心化評価値行列
-R2 = 【課題11】
-print('R\' = \n{}'.format(R2))
-print()
-```
-
-実行結果
-```python
-ru_mean = [2.5  4.   3.5  1.75 2.4 ]
-R' = 
- [[  nan  1.5   0.5  -1.5  -0.5    nan]
- [ 1.    1.    0.     nan -1.   -1.  ]
- [ 0.5    nan  1.5  -0.5  -1.5    nan]
- [  nan  1.25   nan  0.25 -0.75 -0.75]
- [-0.4  -1.4  -0.4   1.6    nan  0.6 ]]
-```
-
-### 10 各ユーザの平均評価値
-各ユーザの平均評価値を`ndarray`のベクトルで返すコードを記述しなさい。
-
-★
-1. `numpy.nanmean`を使う。
-2. `axis`を指定する。
-
-### 11 平均中心化評価値行列
-評価値行列$$\boldsymbol{R}$$を平均中心化評価値行列$\boldsymbol{R}^{'}$に変換するコードを記述しなさい。
-
-★★
-1. `ndarray.reshape`を使う。
-
 ## 平均中心化評価値行列に基づくピアソンの相関係数
-
 平均中心化評価値行列$$\boldsymbol{R}^{'}$$を用いると、ユーザ$$u$$とユーザ$$v$$のピアソンの相関係数$$\mathrm{pearson}(u, v)$$は次式で定義される。
 
 $$
 \mathrm{pearson}(u, v)  = \frac{\sum_{i \in I_{u,v}} r_{u,i}^{'} r_{v,i}^{'}}{\sqrt{\sum_{i \in I_{u,v}} r_{u,i}^{'2}}  \sqrt{\sum_{i \in I_{u,v}} r_{v,i}^{'2}}}
 $$
 
-次のコードは平均中心化評価値行列$$\boldsymbol{R}^{'}$$を基にした$$\mathrm{pearson}(u, v)$$を算出するための関数である。
+ここで、$$r_{u,i}^{'}$$は$$r_{u,i}$$の平均中心化評価値を表す。このピアソンの相関係数の関数を次のコードのとおり定義する。
 
-```python
+関数
+```
 def pearson2(u, v):
     """
-    平均中心化評価値行列R2においてユーザuとユーザvのピアソンの相関係数を算出する。
+    平均中心化評価値行列R2におけるユーザuとユーザvのピアソンの相関係数を返す。
 
     Parameters
     ----------
     u : int
-        ユーザu
+        ユーザuのID
     v : int
-        ユーザv
+        ユーザvのID
 
     Returns
     -------
-    prsn : float
+    float
         ピアソンの相関係数
     """
-    Iu = I[~np.isnan(R2)[u,:]]
-    Iv = I[~np.isnan(R2)[v,:]]
-    Iuv = np.intersect1d(Iu, Iv)
+    Iuv = np.intersect1d(Iu[u], Iu[v])
     
-    num = 【課題12】
-    den_u = 【課題13】
-    den_v = 【課題14】
-    prsn = num / (den_u * den_v)
-    print('pearson({}, {}) = {:.3f} / ({:.3f} * {:.3f}) = {:.3f}'.format(u, v, num, den_u, den_v, prsn))
+    【    問04    】
+    print('num = {}'.format(num))
+    【    問05    】
+    print('den_u = {:.3f}'.format(den_u))
+    【    問06    】
+    print('den_v = {:.3f}'.format(den_v))
 
+    prsn = num / (den_u * den_v)
     return prsn
 ```
 
-確認コード
+コード
 ```python
 u = 0
 v = 1
 similarity = pearson2(u, v)
-print('sim({}, {}) = {:.3f}'.format(u, v, similarity))
+print('pearson2({}, {}) = {:.3f}'.format(u, v, prsn))
 ```
 
-実行結果
+結果
 ```python
-pearson(0, 1) = 2.000 / (1.658 * 1.414) = 0.853
-sim(0, 1) = 0.853
+num = 2.0
+den_u = 1.658
+den_v = 1.414
+pearson2(0, 1) = 0.853
 ```
 
-### 12 ピアソンの相関係数の算出
-ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分子である次式を求めるコードを記述しなさい。
+### 04 ピアソンの相関係数（分子）
+ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分子である次式を求めるコードを書きなさい。得られた値を`num`とすること。
 
 $$
 \sum_{i \in I_{u,v}} r_{u,i}^{'} r_{v,i}^{'}
@@ -227,8 +188,8 @@ $$
 1. リスト内包表記を使う。
 2. `numpy.sum()`を使う。
 
-### 13 ピアソンの相関係数の算出
-ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分母の左部である次式を求めるコードを記述しなさい。
+### 05 ピアソンの相関係数の算出（分母左部）
+ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分母の左部である次式を求めるコードを書きなさい。得られた値を`den_u`とすること。
 
 $$
 \sqrt{\sum_{i \in I_{u,v}} r_{u,i}^{'2}}
@@ -239,8 +200,8 @@ $$
 2. `numpy.sum()`を使う。
 3. `numpy.sqrt()`を使う。
 
-### 14 ピアソンの相関係数の算出
-ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分母の右部である次式を求めるコードを記述しなさい。
+### 06 ピアソンの相関係数の算出（分母右部）
+ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分母の右部である次式を求めるコードを書きなさい。得られた値を`den_vとすること。
 
 $$
 \sqrt{\sum_{i \in I_{u,v}} r_{v,i}^{'2}}
@@ -250,6 +211,9 @@ $$
 1. リスト内包表記を使う。
 2. `numpy.sum()`を使う。
 3. `numpy.sqrt()`を使う。
+
+
+
 
 ## 類似ユーザの選定
 
