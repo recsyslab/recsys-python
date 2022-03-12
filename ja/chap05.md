@@ -407,11 +407,9 @@ def predict(u, i):
     float
         ユーザuのアイテムiに対する予測評価値
     """
-    # ユーザuの類似ユーザ集合の中でアイテムiを評価済みのユーザ集合
     【    問10    】
     print('U{}{} = {}'.format(u, i, Uui))
 
-    # ユーザuのアイテムiに対する予測評価値
     if Uui.size <= 0: return ru_mean[u]
     【    問11    】
     
