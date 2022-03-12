@@ -477,7 +477,6 @@ $$
 コード
 ```python
 【    問12    】
-R3 = np.array([[predict(u, i) if np.isnan(R[u,i]) else R[u,i] for i in I] for u in U])
 print('R\'\' = \n{}'.format(R3))
 ```
 
