@@ -24,6 +24,7 @@ R = np.array([
 ])
 U = np.arange(R.shape[0])
 I = np.arange(R.shape[1])
+Ui = [U[~np.isnan(R)[:,i]] for i in I]
 Iu = [I[~np.isnan(R)[u,:]] for u in U]
 ru_mean = np.nanmean(R, axis=1)
 R2 = R - ru_mean.reshape((ru_mean.size, 1))
@@ -378,7 +379,15 @@ Uu =
 2. `dict.items()`を使う。
 3. 辞書内包表記において`if`節を使う。
 
+## 嗜好予測
+ユーザ$$u$$のアイテム$$i$$に対する予測評価値$$\hat{r}_{u,i}$$は次式で求められる。
 
+$$
+\begin{cases}
+ \overline{r}_{u} + \frac{\sum_{v \in U_{i}^{u}} \mathrm{sim}(u, v) \cdot r_{v,i}^{'}}{\sum_{v \in U_{i}^{u}} \mid \mathrm{sim} (u, v) \mid} & (U_{i}^{u} \neq \emptyset)\\
+ \overline{r}_{u} & (U_{i}^{u} = \emptyset)
+\end{cases}
+$$
 
 
 
@@ -389,12 +398,6 @@ Uu =
 1. `numpy.intersect1d()`を使う。
 
 
-$$
-\begin{cases}
- \overline{r}_{u} + \frac{\sum_{v \in U_{i}^{u}} \mathrm{sim}(u, v) \cdot r_{v,i}^{'}}{\sum_{v \in U_{i}^{u}} \mid \mathrm{sim} (u, v) \mid} & (U_{i}^{u} \neq \emptyset)\\
- \overline{r}_{u} & (U_{i}^{u} = \emptyset)
-\end{cases}
-$$
 
 ```python
 def predict(u, i):
