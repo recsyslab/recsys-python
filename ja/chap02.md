@@ -7,6 +7,7 @@
 次のコードを書きなさい。
 
 ```python
+import pprint
 import numpy as np
 np.set_printoptions(precision=3)
 ```
@@ -257,13 +258,19 @@ I0 = [1 2 3 4]
 コード
 ```python
 【    問12    】
-print('Iu = {}'.format(Iu))
+print('Iu = ')
+pprint.pprint(Iu)
 ```
 
 結果
 ```bash
-Iu = [array([1, 2, 3, 4]), array([0, 1, 2, 4, 5]), array([0, 2, 3, 4]), array([1, 3, 4, 5]), array([0, 1, 2, 3, 5])]
-```
+Iu = 
+[array([1, 2, 3, 4]),
+ array([0, 1, 2, 4, 5]),
+ array([0, 2, 3, 4]),
+ array([1, 3, 4, 5]),
+ array([0, 1, 2, 3, 5])]
+ ```
 
 ★★★
 1. リスト内包表記を使う。
