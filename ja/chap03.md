@@ -7,6 +7,7 @@
 次のコードを書きなさい。
 
 ```python
+import pprint
 import numpy as np
 
 # 上位K件
@@ -291,10 +292,8 @@ def order(u, I):
         (アイテムID: スコア)をペアにした辞書型の推薦リスト
     """
     【    問07    】
-    print('scores = ', end='')
-    for i, scr in scores.items():
-        print('{}: {:.3f}'.format(i, scr), end=', ')
-    print()
+    print('scores = ')
+    pprint.pprint(scores)
     【    問08    】
     return rec_list
 ```
@@ -303,16 +302,21 @@ def order(u, I):
 ```python
 u = 0
 rec_list = order(u, Iu_not)
-print('rec_list = ', end='')
-for i, scr in rec_list.items():
-    print('{}: {:.3f}'.format(i, scr), end=', ')
-print()
+print('rec_list = ')
+pprint.pprint(rec_list)
 ```
 
 結果
 ```bash
-scores = 7: 0.997, 8: 0.983, 9: 0.966, 10: 0.854, 11: 0.783, 12: 0.919, 
-rec_list = 7: 0.997, 8: 0.983, 9: 0.966, 
+scores = 
+{7: 0.9965457582448796,
+ 8: 0.9832820049844603,
+ 9: 0.9656157585206697,
+ 10: 0.8541985556144386,
+ 11: 0.783110847498294,
+ 12: 0.9191450300180578}
+rec_list = 
+{7: 0.9965457582448796, 8: 0.9832820049844603, 9: 0.9656157585206697}
 ```
 
 このとき、関数の仕様を満たすように、次の問いに答えなさい。
