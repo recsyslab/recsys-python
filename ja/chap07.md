@@ -226,7 +226,7 @@ S =
 分散共分散行列$$\boldsymbol{S}$に対して、
 
 $$
-\bm{S} \bm{v} = \lambda \bm{v} \;\;\;\; (\bm{x} \neq \bm{0})
+\boldsymbol{S} \boldsymbol{v} = \lambda \boldsymbol{v} \;\;\;\; (\boldsymbol{x} \neq \boldsymbol{0})
 $$
 
 を満たす$d$次元ベクトル$$\boldsymbol{v}$$と実数$$\lambda$$が存在するとき、$$\lambda$$を行列$\boldsymbol{S}$の固有値，$$\boldsymbol{v}$$を$$\lambda$$に関する行列$$\boldsymbol{S}$$の固有ベクトルという。このとき、次の問いに答えなさい。
@@ -308,21 +308,6 @@ v =
 ★
 1. 整数配列インデキシングを使う。
 
-## 主成分得点
-アイテム$$i$$の第$$k$$主成分得点$$x_{i,k}^{''}$$は次式で求められる。
-
-$$
-x_{i,k}^{''} = \sum_{l = 1}^{d} x_{i,l}^{'} v_{k,l}
-$$
-
-アイテム$$i$$の次元削減後の特徴ベクトル$$\boldsymbol{x}_{i}^{''}$$は次式で求められる。
-
-$$
-\boldsymbol{x}_{i}^{''\mathsf{T}} = \boldsymbol{x}_{i}^{'\mathsf{T}} \boldsymbol{V}
-$$
-
-このとき、次の問いに答えなさい。
-
 ### 10 第d主成分までの固有ベクトル
 第$$d$$主成分までの対応する固有ベクトルを列ベクトルとして並べた行列$$\boldsymbol{V}$$を`ndarray`として生成するコードを書きなさい。得られた`ndarray`を`V`とすること。
 
@@ -342,6 +327,21 @@ V =
 
 ★
 1. スライシングを使う。
+
+## 主成分得点
+アイテム$$i$$の第$$k$$主成分得点$$x_{i,k}^{''}$$は次式で求められる。
+
+$$
+x_{i,k}^{''} = \sum_{l = 1}^{d} x_{i,l}^{'} v_{k,l}
+$$
+
+アイテム$$i$$の次元削減後の特徴ベクトル$$\boldsymbol{x}_{i}^{''}$$は次式で求められる。
+
+$$
+\boldsymbol{x}_{i}^{''\mathsf{T}} = \boldsymbol{x}_{i}^{'\mathsf{T}} \boldsymbol{V}
+$$
+
+このとき、次の問いに答えなさい。
 
 ### 11 アイテムiの第k主成分得点
 アイテム$$i$$の第$$k$$主成分得点$$x_{i,k}^{''}$$を求めるコードを書きなさい。得られた値を`xik3`とすること。
