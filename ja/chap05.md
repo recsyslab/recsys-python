@@ -86,7 +86,7 @@ den_v = 1.414
 pearson1(0, 1) = 0.853
 ```
 
-このとき、次の問いに答えなさい。
+このとき、関数の仕様を満たすように、次の問いに答えなさい。
 
 ### 01 ピアソンの相関係数（分子）
 ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分子である次式を求めるコードを書きなさい。得られた値を`num`とすること。
@@ -180,7 +180,7 @@ den_v = 1.414
 pearson2(0, 1) = 0.853
 ```
 
-このとき、次の問いに答えなさい。
+このとき、関数の仕様を満たすように、次の問いに答えなさい。
 
 ### 04 ピアソンの相関係数（分子）
 ピアソンの相関係数$$\mathrm{pearson}(u, v)$$の分子である次式を求めるコードを書きなさい。得られた値を`num`とすること。
@@ -389,7 +389,7 @@ $$
 \end{cases}
 $$
 
-
+ここで、$$U_{i}^{u}$$は類似ユーザ集合$$U^{u}$$の中でアイテム$$i$$を評価済みのユーザ集合を表す。$$\emptyset$$は空集合を表す。この予測関数を次のコードのとおり定義する。
 
 関数
 ```python
@@ -410,16 +410,12 @@ def predict(u, i):
         ユーザuのアイテムiに対する予測評価値
     """
     # ユーザuの類似ユーザ集合U^{u}の中でアイテムiを評価済みのユーザ集合
-    # 10
-    Uui = np.intersect1d(Ui[i], Uu[u])
+    【    問10    】
     print('U{}{} = {}'.format(u, i, Uui))
 
     # ユーザuのアイテムiに対する予測評価値
     if Uui.size <= 0: return ru_mean[u]
-    # 11
-    num = np.sum([(S[u,v] * R2[v,i]) for v in Uui])
-    den = np.sum([np.abs(S[u,v]) for v in Uui])
-    rui_pred = ru_mean[u] + num / den
+    【    問11    】
     
     return rui_pred
 ```
@@ -444,62 +440,16 @@ U05 = [1 3]
 r05 = 1.601
 ```
 
+このとき、関数の仕様を満たすように、次の問いに答えなさい。
 
-### 18
-ユーザ$$u$$の類似ユーザ集合$$U^{u}$$の中でアイテム$$i$$を評価済みのユーザ集合$$U_{i}^{u}$$を取得するコードを記述しなさい。
+### 10 類似ユーザ集合の中でアイテムiを評価済みのユーザ集合
+ユーザ$$u$$の類似ユーザ集合$$U^{u}$$の中でアイテム$$i$$を評価済みのユーザ集合$$U_{i}^{u}$$を`ndarray`として生成するコードを書きなさい。生成された`ndarray`を`Uui`とすること。
 
 ★
 1. `numpy.intersect1d()`を使う。
 
-
-
-```python
-def predict(u, i):
-    """
-    ユーザuのアイテムiに対する予測評価値を算出する。
-
-    Parameters
-    ----------
-    u : int
-        ユーザu
-    i : int
-        アイテムi
-
-    Returns
-    -------
-    rui_pred : float
-        ユーザuのアイテムiに対する予測評価値
-    """
-    # ユーザuの類似ユーザ集合
-    Uu = {v: sim(u, v) for v in U if u!=v}
-    print('U{} = {}'.format(u, Uu))
-    # 類似度上位K_USERS人のユーザ集合
-    Uu = 【課題15】
-    print('U{} = {}'.format(u, Uu))
-    # 類似度が閾値THETA以上のユーザ集合
-    Uu = 【課題16】
-    print('U{} = {}'.format(u, Uu))
-    # 辞書型からndarray型に変換
-    Uu = np.array(list(Uu.keys()))
-    print('U{} = {}'.format(u, Uu))
-
-    # アイテムiを評価済みのユーザ集合
-    Ui = 【課題17】
-#    print('U{} = {}'.format(i, Ui))
-    # ユーザuの類似ユーザ集合U^{u}の中でアイテムiを評価済みのユーザ集合
-    Uui = 【課題18】
-#    print('U{}{} = {}'.format(u, i, Uui))
-
-    # ユーザuのアイテムiに対する予測評価値
-    ru_mean = np.nanmean(R[u])
-    if Uui.size <= 0: return ru_mean
-    rui_pred = 【課題19】
-#    print('r{}{}_pred = {:.3f} + {:.3f} / {:.3f} = {:.3f}'.format(u, i, ru_mean, num, den, rui_pred))
-```
-
-
-### 19 予測評価値
-$$U_{i}^{u} \neq \emptyset$$のとき、ユーザ$$u$$のアイテム$$i$$に対する予測評価値$$\hat{r}_{u,i}$$を算出するコードを記述しなさい。
+### 11 予測評価値
+$$U_{i}^{u} \neq \emptyset$$のとき、ユーザ$$u$$のアイテム$$i$$に対する予測評価値$$\hat{r}_{u,i}$$を求めるコードを書きなさい。得られた値を`rui_pred`とすること。
 
 ★★★
 1. リスト内包表記を使う。
