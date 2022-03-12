@@ -7,6 +7,7 @@
 次のコードを書きなさい。
 
 ```python
+import pprint
 import numpy as np
 np.set_printoptions(precision=3)
 
@@ -203,12 +204,19 @@ Ii =
 コード
 ```python
 【    問05    】
-print('Ii = {}'.format(Ii))
+print('Ii = ')
+pprint.pprint(Ii)
 ```
 
 結果
 ```bash
-Ii = {7: array([2, 0, 1]), 8: array([2, 1, 0]), 9: array([3, 6, 0]), 10: array([4, 5, 0]), 11: array([5, 6, 4]), 12: array([0, 4, 5])}
+Ii = 
+{7: array([2, 0, 1]),
+ 8: array([2, 1, 0]),
+ 9: array([3, 6, 0]),
+ 10: array([4, 5, 0]),
+ 11: array([5, 6, 4]),
+ 12: array([0, 4, 5])}
 ```
 
 ★★★
@@ -414,15 +422,14 @@ def order(u, I):
 ```python
 u = 0
 rec_list = order(u, Iu_not)
-print('rec_list = ', end='')
-for i, scr in rec_list.items():
-    print('{}: {:.3f}'.format(i, scr), end=', ')
-print()
+print('rec_list = ')
+pprint.pprint(rec_list)
 ```
 
 結果
 ```bash
-rec_list = 7: 1.000, 8: 1.000,
+rec_list = 
+{7: 1.0, 8: 1.0}
 ```
 
 このとき、関数の仕様を満たすように、次の問いに答えなさい。
