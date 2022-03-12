@@ -64,6 +64,7 @@ def cos(i, j):
     return cosine
 ```
 
+コード
 ```python
 i = 0
 j = 4
@@ -71,6 +72,7 @@ cosine = cos(i, j)
 print('cos({}, {}) = {:.3f}'.format(i, j, cosine))
 ```
 
+結果
 ```python
 cos(0, 4) = 0.996
 ```
@@ -78,7 +80,7 @@ cos(0, 4) = 0.996
 このとき、関数の仕様を満たすように、次の問いに答えなさい。
 
 ### 01 アイテムiとアイテムjのコサイン類似度
-アイテム$$i$$とアイテム$$j$$のコサイン類似度を求めるコードを書きなさい。得られた値を`cosine`とすること。
+アイテム$$i$$とアイテム$$j$$のコサイン類似度$$\mathrm{cos}(i, j)$$を求めるコードを書きなさい。得られた値を`cosine`とすること。
 
 ★★★
 1. リスト内包表記を使う
@@ -86,24 +88,19 @@ cos(0, 4) = 0.996
 3. `numpy.sqrt()`を使う。
 
 ## 調整コサイン類似度
-平均中心化評価値行列$$\bolssymbol{R}^{'}$$を用いると、アイテム$$i$$とアイテム$$j$$の調整コサイン類似度$$\mathrm{cos}(i, j)$$は次式で定義される。
+平均中心化評価値行列$$\bolssymbol{R}^{'}$$を用いると、アイテム$$i$$とアイテム$$j$$の調整コサイン類似度$$\mathrm{cos}(i, j)^{'}$$は次式で定義される。
 
 $$
 \mathrm{cos}(i, j)^{'} = \frac{\sum_{u \in U_{i,j}} r_{u,i}^{'} r_{u,j}^{'}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{'2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{'2}}}
 $$
 
-
-$$
-\mathrm{cos}(i, j) = \frac{\sum_{u \in U_{i,j}} r_{u,i} r_{u,j}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{2}}}
-$$
-
-ここで、$$U_{i,j}$$はアイテム$$i$$とアイテム$$j$$の両方を評価済みのユーザ集合である。このコサイン類似度関数を次のコードのとおり定義する。
+この調整コサイン類似度関数を次のコードのとおり定義する。
 
 関数
 ```python
-def cos(i, j):
+def adjusted_cos(i, j):
     """
-    評価値行列Rにおけるアイテムiとアイテムjのコサイン類似度を返す。
+    評価値行列R2におけるアイテムiとアイテムjの調整コサイン類似度を返す。
 
     Parameters
     ----------
@@ -114,118 +111,37 @@ def cos(i, j):
 
     Returns
     -------
-    float
-        コサイン類似度
+    cosine : float
+        調整コサイン類似度
     """
-    Uij = np.intersect1d(Ui, Uj)
+    Uij = np.intersect1d(Ui[i], Ui[j])
     
-    【    問01    】
+    【    問02    】
     return cosine
 ```
 
+コード
 ```python
 i = 0
 j = 4
-cosine = cos(i, j)
-print('cos({}, {}) = {:.3f}'.format(i, j, cosine))
+cosine = adjusted_cos(i, j)
+print('cos({}, {})\' = {:.3f}'.format(i, j, cosine))
 ```
 
+結果
 ```python
-cos(0, 4) = 0.996
+cos(0, 4)' = -0.868
 ```
 
 このとき、関数の仕様を満たすように、次の問いに答えなさい。
 
-評価値行列$$\boldsymbol{R}$$の平均中心化評価値行列$$\boldsymbol{R}^{'}$$は次式のとおりとなる。
-
-$$
-\boldsymbol{R}^{'} = \left[
-            \begin{array}{rrrrrr}
-                     &  1.5  &  0.5 & -1.5  & -0.5  &       \\
-                 1   &  1    &  0   &       & -1    & -1    \\
-                 0.5 &       &  1.5 & -0.5  & -1.5  &       \\
-                     &  1.25 &      &  0.25 & -0.75 & -0.75 \\
-                -0.4 & -1.4  & -0.4 &  1.6  &       &  0.6
-            \end{array}
-        \right]
-$$
-
-このとき、アイテム$$i$$とアイテム$$j$$の調整コサイン類似度$$\mathrm{cos}(i, j)^{'}$$は次式で定義される。
-
-$$
-\mathrm{cos}(i, j)^{'} = \frac{\sum_{u \in U_{i,j}} r_{u,i}^{'} r_{u,j}^{'}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{'2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{'2}}}
-$$
-
-ここで、$$r_{u,i}^{'}$$はユーザ$$u$$のアイテム$$i$$に対する平均中心化評価値を表す。
-
-
-
-```
-def adjusted_cos(i, j):
-    """
-    評価値行列R2においてアイテムiとアイテムjの調整コサイン類似度を算出する。
-
-    Parameters
-    ----------
-    i : int
-        アイテムi
-    j : int
-        アイテムj
-
-    Returns
-    -------
-    cosine : float
-        調整コサイン類似度
-    """
-    【課題06】
-
-    return cosine
-```
-
-```python
-# 平均中心化評価値行列
-【課題05】
-print('R\' = \n{}'.format(R2))
-
-# 調整コサイン類似度
-i = 0
-j = 4
-cosine = adjusted_cos(i, j)
-print('sim({}, {}) = {:.3f}'.format(i, j, cosine))
-```
-
-```python
-ru_mean =  [2.5  4.   3.5  1.75 2.4 ]
-R' = 
-[[  nan  1.5   0.5  -1.5  -0.5    nan]
- [ 1.    1.    0.     nan -1.   -1.  ]
- [ 0.5    nan  1.5  -0.5  -1.5    nan]
- [  nan  1.25   nan  0.25 -0.75 -0.75]
- [-0.4  -1.4  -0.4   1.6    nan  0.6 ]]
-sim(0, 4) = -0.868
-```
-
-### 05 平均中心化評価値行列
-評価値行列$$\boldsymbol{R}$$を平均中心化評価値行列$$\boldsymbol{R}^{'}$$に変換するコードを書きなさい。
-
-★★
-1. `numpy.nanmean()`を使う。
-2. `axis`を指定する。
-3. `ndarray.reshape()`を使う。
-4. 得られた行列を`ndarray`として`R2`に代入する。
-
-### 06 アイテムiとアイテムjのコサイン類似度
-アイテム$$i$$とアイテム$$j$$の調整コサイン類似度を求めるコードを書きなさい。
+### 02 アイテムiとアイテムjの調整コサイン類似度
+アイテム$$i$$とアイテム$$j$$のコサイン類似度$$\mathrm{cos}(i, j)^{'}$$を求めるコードを書きなさい。得られた値を`cosine`とすること。
 
 ★★★
-1. `numpy.isnan()`を使う。
-2. `~`演算子を使う。
-3. ベクトルのブールインデックス参照を使う。
-4. `numpy.intersect1d()`を使う。
-5. リスト内包表記を使う。
-6. `numpy.sum()`を使う。
-7. `numpy.sqrt()`を使う。
-8. 得られたコサイン類似度を`cosine`に代入する。
+1. リスト内包表記を使う。
+2. `numpy.sum()`を使う。
+3. `numpy.sqrt()`を使う。
 
 ## アイテム-アイテム類似度行列
 
