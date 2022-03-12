@@ -383,12 +383,66 @@ Uu =
 ユーザ$$u$$のアイテム$$i$$に対する予測評価値$$\hat{r}_{u,i}$$は次式で求められる。
 
 $$
-\begin{cases}
+\hat{r}_{u,i} = \begin{cases}
  \overline{r}_{u} + \frac{\sum_{v \in U_{i}^{u}} \mathrm{sim}(u, v) \cdot r_{v,i}^{'}}{\sum_{v \in U_{i}^{u}} \mid \mathrm{sim} (u, v) \mid} & (U_{i}^{u} \neq \emptyset)\\
  \overline{r}_{u} & (U_{i}^{u} = \emptyset)
 \end{cases}
 $$
 
+
+
+関数
+```python
+def predict(u, i):
+    """
+    予測関数：ユーザuのアイテムiに対する予測評価値を返す。
+
+    Parameters
+    ----------
+    u : int
+        ユーザuのID
+    i : int
+        アイテムiのID
+
+    Returns
+    -------
+    float
+        ユーザuのアイテムiに対する予測評価値
+    """
+    # ユーザuの類似ユーザ集合U^{u}の中でアイテムiを評価済みのユーザ集合
+    # 10
+    Uui = np.intersect1d(Ui[i], Uu[u])
+    print('U{}{} = {}'.format(u, i, Uui))
+
+    # ユーザuのアイテムiに対する予測評価値
+    if Uui.size <= 0: return ru_mean[u]
+    # 11
+    num = np.sum([(S[u,v] * R2[v,i]) for v in Uui])
+    den = np.sum([np.abs(S[u,v]) for v in Uui])
+    rui_pred = ru_mean[u] + num / den
+    
+    return rui_pred
+```
+
+コード
+```python
+u = 0
+i = 0
+rui_pred = predict(u, i)
+print('r{}{} = {:.3f}'.format(u, i, rui_pred))
+u = 0
+i = 5
+rui_pred = predict(u, i)
+print('r{}{} = {:.3f}'.format(u, i, rui_pred))
+```
+
+結果
+```
+U00 = [1 2]
+r00 = 3.289
+U05 = [1 3]
+r05 = 1.601
+```
 
 
 ### 18
