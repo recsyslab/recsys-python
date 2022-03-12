@@ -420,12 +420,10 @@ def predict(u, i):
 ```python
 u = 0
 i = 0
-rui_pred = predict(u, i)
-print('r{}{} = {:.3f}'.format(u, i, rui_pred))
+print('r{}{} = {:.3f}'.format(u, i, predict(u, i)))
 u = 0
 i = 5
-rui_pred = predict(u, i)
-print('r{}{} = {:.3f}'.format(u, i, rui_pred))
+print('r{}{} = {:.3f}'.format(u, i, predict(u, i)))
 ```
 
 結果
