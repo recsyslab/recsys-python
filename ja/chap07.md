@@ -317,7 +317,7 @@ $$
 アイテム$$i$$の次元削減後の特徴ベクトル$$\boldsymbol{x}_{i}^{''}$$は次式で求められる。
 
 $$
-\bm{x}_{i}^{''\mathsf{T}} = \boldsymbol{x}_{i}^{'\mathsf{T}} \boldsymbol{V}
+\boldsymbol{x}_{i}^{''\mathsf{T}} = \boldsymbol{x}_{i}^{'\mathsf{T}} \boldsymbol{V}
 $$
 
 このとき、次の問いに答えなさい。
