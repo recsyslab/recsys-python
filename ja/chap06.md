@@ -75,6 +75,8 @@ print('cos({}, {}) = {:.3f}'.format(i, j, cosine))
 cos(0, 4) = 0.996
 ```
 
+このとき、関数の仕様を満たすように、次の問いに答えなさい。
+
 ### 01 アイテムiとアイテムjのコサイン類似度
 アイテム$$i$$とアイテム$$j$$のコサイン類似度を求めるコードを書きなさい。得られた値を`cosine`とすること。
 
@@ -84,6 +86,56 @@ cos(0, 4) = 0.996
 3. `numpy.sqrt()`を使う。
 
 ## 調整コサイン類似度
+平均中心化評価値行列$$\bolssymbol{R}^{'}$$を用いると、アイテム$$i$$とアイテム$$j$$の調整コサイン類似度$$\mathrm{cos}(i, j)$$は次式で定義される。
+
+$$
+\mathrm{cos}(i, j)^{'} = \frac{\sum_{u \in U_{i,j}} r_{u,i}^{'} r_{u,j}^{'}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{'2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{'2}}}
+$$
+
+
+$$
+\mathrm{cos}(i, j) = \frac{\sum_{u \in U_{i,j}} r_{u,i} r_{u,j}}{\sqrt{\sum_{u \in U_{i,j}} r_{u,i}^{2}} \sqrt{\sum_{u \in U_{i,j}} r_{u,j}^{2}}}
+$$
+
+ここで、$$U_{i,j}$$はアイテム$$i$$とアイテム$$j$$の両方を評価済みのユーザ集合である。このコサイン類似度関数を次のコードのとおり定義する。
+
+関数
+```python
+def cos(i, j):
+    """
+    評価値行列Rにおけるアイテムiとアイテムjのコサイン類似度を返す。
+
+    Parameters
+    ----------
+    i : int
+        アイテムiのID
+    j : int
+        アイテムjのID
+
+    Returns
+    -------
+    float
+        コサイン類似度
+    """
+    Uij = np.intersect1d(Ui, Uj)
+    
+    【    問01    】
+    return cosine
+```
+
+```python
+i = 0
+j = 4
+cosine = cos(i, j)
+print('cos({}, {}) = {:.3f}'.format(i, j, cosine))
+```
+
+```python
+cos(0, 4) = 0.996
+```
+
+このとき、関数の仕様を満たすように、次の問いに答えなさい。
+
 評価値行列$$\boldsymbol{R}$$の平均中心化評価値行列$$\boldsymbol{R}^{'}$$は次式のとおりとなる。
 
 $$
