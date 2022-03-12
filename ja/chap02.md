@@ -322,12 +322,19 @@ U0 = [1 2 4]
 コード
 ```python
 【    問15    】
-print('Ui = {}'.format(Ui))
+print('Ui = ')
+pprint.pprint(Ui)
 ```
 
 結果
 ```bash
-Ui = [array([1, 2, 4]), array([0, 1, 3, 4]), array([0, 1, 2, 4]), array([0, 2, 3, 4]), array([0, 1, 2, 3]), array([1, 3, 4])]
+Ui = 
+[array([1, 2, 4]),
+ array([0, 1, 3, 4]),
+ array([0, 1, 2, 4]),
+ array([0, 2, 3, 4]),
+ array([0, 1, 2, 3]),
+ array([1, 3, 4])]
 ```
 
 ★★★
