@@ -7,6 +7,7 @@
 次のコードを書きなさい。
 
 ```python
+import pprint
 import numpy as np
 from fractions import Fraction
 
@@ -307,20 +308,20 @@ $$
 1. `ndarray.shape`を使う。
 2. ブール値インデキシングを使う。
 
-### 08 特徴量kに関する条件付き確率（分母）
+### 09 特徴量kに関する条件付き確率（分母）
 ラプラススムージングを適用したとき、特徴量$$k$$に関する条件付き確率の式の分母を求めるコードを書きなさい。ただし、スムージングパラメタを`ALPHA`、各特徴量がとりうる値のユニーク数の配列を`M`とする。得られた値を`den`とすること。
 
 ★
 1. `ndarray.shape`を使う。
 
 ## 推薦
-スコア関数は次式のように定義される。
+スコア関数$$\mathrm{score}(u, i)$$はユーザ$$u$$がアイテム$$i$$を好む程度をスコアとして返す関数であり、次式のように定義される。
 
 $$
 \mathrm{score}(u, i) = \frac{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1)}{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1) + P(R = -1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = -1)}
 $$
 
-次の関数は、ユーザ`u`のアイテム`i`に対するスコアを返す関数である。
+スコア関数を次のコードのとおり定義する。
 
 関数
 ```python
@@ -331,22 +332,21 @@ def score(u, i):
     Parameters
     ----------
     u : int
-        ユーザuのインデックス（ダミー）
+        ユーザuのID（ダミー）
     i : int
-        アイテムiのインデックス
+        アイテムiのID
 
     Returns
     -------
     float
         スコア
     """
-    【問題09】
+    【    問10    】
     return scr
 ```
 
 コード
 ```python
-# 各対象アイテムのスコア
 u = 0
 scores = {i: score(u, i) for i in IU}
 print('scores = ')
