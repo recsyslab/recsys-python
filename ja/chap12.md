@@ -200,6 +200,8 @@ TPR@3 = 0.500
 FPR@3 = 0.333
 ```
 
+このとき、次の問いに答えなさい。
+
 ### 07 真陽性率（TPR）
 真陽性率を求めるコードを書きなさい。得られた値を`TPR`とすること。
 
@@ -214,4 +216,37 @@ FPR@3 = 0.333
 1. `FP`を参照する。
 2. `TN`を参照する。
 
+## 適合率と再現率
+上位$$K$$件の推薦リストにおける適合率$$\mathit{precision}@K$$、再現率$$\mathit{recall}@K$$は、それぞれ次式で定義される。
 
+$$
+\mathit{precision}@K = \frac{\mathit{TP}@K}{\mathit{TP}@K + \mathit{FP}@K}
+$$
+
+$$
+\mathit{recall}@K = \frac{\mathit{TP}@K}{\mathit{TP}@K + \mathit{FN}@K}
+$$
+
+また、上位$$K$$件の推薦リストにおけるF値$$F_{1}@K$$は、次式で定義される。
+
+$$
+F_{1}@K = \frac{2 \cdot \mathit{precision}@K \cdot \mathit{recall}@K}{\mathit{precision}@K + \mathit{recall}@K}
+$$
+
+コード
+```python
+【    問11    】
+print('precision@{} = {:.3f}'.format(K, precision))
+【    問12    】
+print('recall@{} = {:.3f}'.format(K, recall))
+【    問13    】
+print('F1@{} = {:.3f}'.format(K, F1))
+```
+
+結果
+```bash
+TPR@3 = 0.500
+FPR@3 = 0.333
+```
+
+このとき、次の問いに答えなさい。
