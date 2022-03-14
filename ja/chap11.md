@@ -145,18 +145,63 @@ MSE_B = 1.000
 
 ★★★
 1. 二重のリスト内包表記を使う。
-3. `numpy.count_nonzero()`を使う。
-4. `numpy.isnan()`を使う。
-5. `~`演算子を使う。
-6. `numpy.nansum()`を使う。
+2. `numpy.count_nonzero()`を使う。
+3. `numpy.isnan()`を使う。
+4. `~`演算子を使う。
+5. `numpy.nansum()`を使う。
 
 ### 04 推薦システムBのMSE
 推薦システムAの$$\mathit{MSE}^{B}$$を求めるコードを書きなさい。得られた値を`MSE_B`とすること。
 
 ★★★
 1. 二重のリスト内包表記を使う。
-3. `numpy.count_nonzero()`を使う。
-4. `numpy.isnan()`を使う。
-5. `~`演算子を使う。
-6. `numpy.nansum()`を使う。
+2. `numpy.count_nonzero()`を使う。
+3. `numpy.isnan()`を使う。
+4. `~`演算子を使う。
+5. `numpy.nansum()`を使う。
 
+## 二乗平均平方根誤差
+二乗平均平方根誤差$$\mathit{RMSE}$$は次式で定義される。
+
+$$
+\mathit{RMSE} = \sqrt{\frac{\sum_{(u,i) \in R^{\mathit{test}}} (\hat{r}_{u,i} - r_{u,i})^{2}}{\mid R^{\mathit{test}} \mid}}
+$$
+
+コード
+```python
+print('MSE_{} = {:.3f}'.format('B', MSE_B))
+【    問05    】
+print('RMSE_{} = {:.3f}'.format('A', RMSE_A))
+【    問06    】
+print('RMSE_{} = {:.3f}'.format('B', RMSE_B))
+```
+
+結果
+```bash
+RMSE_A = 1.265
+RMSE_B = 1.000
+```
+
+このとき、次の問いに答えなさい。
+
+### 05 推薦システムAのRMSE
+推薦システムAの$$\mathit{RMSE}^{A}$$を求めるコードを書きなさい。得られた値を`RMSE_A`とすること。
+
+★★★
+1. 二重のリスト内包表記を使う。
+2. `numpy.count_nonzero()`を使う。
+3. `numpy.isnan()`を使う。
+4. `~`演算子を使う。
+5. `numpy.nansum()`を使う。
+6. `numpy.sqrt()`を使う。
+
+### 06 推薦システムBのRMSE
+推薦システムBの$$\mathit{RMSE}^{B}$$を求めるコードを書きなさい。得られた値を`RMSE_B`とすること。
+
+★★★
+1. 二重のリスト内包表記を使う。
+2. `numpy.count_nonzero()`を使う。
+3. `numpy.isnan()`を使う。
+4. `~`演算子を使う。
+5. `numpy.nansum()`を使う。
+6. `numpy.sqrt()`を使う。
