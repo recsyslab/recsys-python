@@ -62,8 +62,77 @@ RB = np.array([
 ```
 
 ## 混同行列
+次の表は混同行列である。
 
 |      | 推薦された | 推薦されなかった |
 | ---- | --------- | ----------------|
 | 好き | 好きなアイテムが推薦された数（TP） | 好きなアイテムが推薦されなかった数（FN） |
 | 嫌い | 嫌いなアイテムが推薦された数（FP） | 嫌いなアイテムが推薦されなかった数（TN） |
+
+次の関数は、ユーザ`u`向け推薦リスト`RS`の上位`K`件における混同行列の各値を返す関数である。
+
+関数
+```python
+def confusion_matrix(u, RS, K):
+    """
+    ユーザu向け推薦リストRSの上位K件における混同行列の各値を返す。
+
+    Parameters
+    ----------
+    u : int
+        ユーザuのID
+    RS : ndarray
+        推薦リストRS
+    K : int
+        上位K件
+
+    Returns
+    -------
+    int
+        TP
+    int
+        FN
+    int
+        FP
+    int
+        TN
+    """
+    like = R[u,Iu[u]]>=4
+    print('like = {}'.format(like))
+    recommended = RS[u,Iu[u]]<=K
+    print('recommended@{} = {}'.format(K, recommended))
+    TP = np.count_nonzero(np.logical_and(like, recommended))
+    print('TP@{} = {}'.format(K, TP))
+    FN = np.count_nonzero(np.logical_and(like, ~recommended))
+    print('FN@{} = {}'.format(K, FN))
+    FP = np.count_nonzero(np.logical_and(~like, recommended))
+    print('FP@{} = {}'.format(K, FP))
+    TN = np.count_nonzero(np.logical_and(~like, ~recommended))
+    print('TN@{} = {}'.format(K, TN))
+    return TP, FN, FP, TN
+```
+
+コード
+```python
+u = 0
+K = 3
+TP, FN, FP, TN = confusion_matrix(u, RA, K)
+print('混同行列 = \n{}'.format(np.array([[TP, FN], [FP, TN]])))
+```
+
+結果
+```bash
+like = [ True  True False  True  True False False]
+recommended@3 = [ True False  True False  True False False]
+TP@3 = 2
+FN@3 = 2
+FP@3 = 1
+TN@3 = 2
+混同行列 = 
+[[2 2]
+ [1 2]]
+```
+
+このとき、次の問いに答えなさい。
+
+###
