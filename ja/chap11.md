@@ -187,6 +187,10 @@ RMSE_B = 1.000
 ### 05 推薦システムAのRMSE
 推薦システムAの$$\mathit{RMSE}^{A}$$を求めるコードを書きなさい。得られた値を`RMSE_A`とすること。
 
+★
+1. `MSE_A`を参照する。
+2. `numpy.sart()`を使う。
+
 ★★★
 1. 二重のリスト内包表記を使う。
 2. `numpy.count_nonzero()`を使う。
@@ -198,6 +202,10 @@ RMSE_B = 1.000
 ### 06 推薦システムBのRMSE
 推薦システムBの$$\mathit{RMSE}^{B}$$を求めるコードを書きなさい。得られた値を`RMSE_B`とすること。
 
+★
+1. `MSE_B`を参照する。
+2. `numpy.sart()`を使う。
+
 ★★★
 1. 二重のリスト内包表記を使う。
 2. `numpy.count_nonzero()`を使う。
@@ -205,3 +213,65 @@ RMSE_B = 1.000
 4. `~`演算子を使う。
 5. `numpy.nansum()`を使う。
 6. `numpy.sqrt()`を使う。
+
+## 正規化MAEと正規化RMSE
+正規化MAE$$\mathit{NMAE}$$と正規化RMSE$$\mathit{NRMSE}$$は、それぞれ次式で定義される。
+
+$$
+\mathit{NMAE} = \frac{\mathit{MAE}}{r_{\mathit{max}} - r_{\mathit{min}}}
+$$
+
+$$
+\mathit{NRMSE} = \frac{\mathit{RMSE}}{r_{\mathit{max}} - r_{\mathit{min}}}
+$$
+
+ここで、$$r_{\mathit{max}}$$、$$r_{\mathit{min}}$$は、それぞれ、とりうる評価値の最大値、最小値を表す。
+
+コード
+```python
+# NMAE
+【    問07    】
+print('NMAE_{} = {:.3f}'.format('A', NMAE_A))
+【    問08    】
+print('NMAE_{} = {:.3f}'.format('B', NMAE_B))
+
+# NRMSE
+【    問09    】
+print('NRMSE_{} = {:.3f}'.format('A', NRMSE_A))
+【    問10    】
+print('NRMSE_{} = {:.3f}'.format('B', NRMSE_B))
+```
+
+結果
+```bash
+NMAE_A = 0.200
+NMAE_B = 0.250
+NRMSE_A = 0.316
+NRMSE_B = 0.250
+```
+
+このとき、次の問いに答えなさい。
+
+### 07 推薦システムAのNMAE
+推薦システムAの$$\mathit{NMAE}^{A}$$を求めるコードを書きなさい。ただし、$$r_{\mathit{max}}$$、$$r_{\mathit{min}}$$は、それぞれ`R_MAX`、`R_MIN`とする。得られた値を`NMAE_A`とすること。
+
+★
+1. `MAE_A`を参照する。
+
+### 08 推薦システムBのNMAE
+推薦システムAの$$\mathit{NMAE}^{B}$$を求めるコードを書きなさい。ただし、$$r_{\mathit{max}}$$、$$r_{\mathit{min}}$$は、それぞれ`R_MAX`、`R_MIN`とする。得られた値を`NMAE_B`とすること。
+
+★
+1. `MAE_B`を参照する。
+
+### 09 推薦システムAのNRMSE
+推薦システムAの$$\mathit{NRMSE}^{A}$$を求めるコードを書きなさい。ただし、$$r_{\mathit{max}}$$、$$r_{\mathit{min}}$$は、それぞれ`R_MAX`、`R_MIN`とする。得られた値を`NRMSE_A`とすること。
+
+★
+1. `RMSE_A`を参照する。
+
+### 10 推薦システムBのNRMSE
+推薦システムBの$$\mathit{NRMSE}^{B}$$を求めるコードを書きなさい。ただし、$$r_{\mathit{max}}$$、$$r_{\mathit{min}}$$は、それぞれ`R_MAX`、`R_MIN`とする。得られた値を`NRMSE_B`とすること。
+
+★
+1. `RMSE_B`を参照する。
