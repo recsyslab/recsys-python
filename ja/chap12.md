@@ -16,7 +16,7 @@ $$
 \right]
 $$
 
-次の評価値行列$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$は、それぞれ推薦システムA、推薦システムBによる推薦リストである。$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$の$$(u, i)$$成分は、それぞれ推薦システムA、推薦システムBによる推薦リストにおける順位を表す。
+次の行列$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$は、それぞれ推薦システムA、推薦システムBによる推薦リストである。$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$の$$(u, i)$$成分は、それぞれユーザ$$u$$向けの推薦システムA、推薦システムBによる推薦リストにおける順位を表す。ただし、ここでは、ユーザ$$u = 0$$向けの推薦リストのみを示している。
 
 $$
 \hat{\boldsymbol{R}}^{A} = \left[
@@ -69,7 +69,7 @@ RB = np.array([
 | 好き | 好きなアイテムが推薦された数（TP） | 好きなアイテムが推薦されなかった数（FN） |
 | 嫌い | 嫌いなアイテムが推薦された数（FP） | 嫌いなアイテムが推薦されなかった数（TN） |
 
-次の関数は、ユーザ`u`向け推薦リスト`RS`の上位`K`件における混同行列の各値を返す関数である。
+ここでは、評価値が4以上のアイテムを好きなアイテムとみなす。次の関数は、ユーザ`u`向け推薦リスト`RS`の上位`K`件における混同行列の各値を返す関数である。
 
 関数
 ```python
@@ -97,17 +97,17 @@ def confusion_matrix(u, RS, K):
     int
         TN
     """
-    like = R[u,Iu[u]]>=4
+    【    問01    】
     print('like = {}'.format(like))
-    recommended = RS[u,Iu[u]]<=K
+    【    問02    】
     print('recommended@{} = {}'.format(K, recommended))
-    TP = np.count_nonzero(np.logical_and(like, recommended))
+    【    問03    】
     print('TP@{} = {}'.format(K, TP))
-    FN = np.count_nonzero(np.logical_and(like, ~recommended))
+    【    問04    】
     print('FN@{} = {}'.format(K, FN))
-    FP = np.count_nonzero(np.logical_and(~like, recommended))
+    【    問05    】
     print('FP@{} = {}'.format(K, FP))
-    TN = np.count_nonzero(np.logical_and(~like, ~recommended))
+    【    問06    】
     print('TN@{} = {}'.format(K, TN))
     return TP, FN, FP, TN
 ```
@@ -135,4 +135,17 @@ TN@3 = 2
 
 このとき、次の問いに答えなさい。
 
-###
+### 01 好きなアイテムか否かの判定
+`R`において、ユーザ`u`が評価済みのアイテム集合を対象に評価値が4以上の要素には`True`を、4未満の要素には`False`を入れたブール値配列を生成するコードを書きなさい。得られたブール値配列を`like`とすること。
+
+★★
+1. 整数配列インデキシングを使う。
+
+### 02 推薦されたアイテムか否かの判定
+推薦リスト`RS`において順位が`K`以内の要素には`True`を、それ以外の要素には`False`を入れたブール値配列を生成するコードを書きなさい。得られたブール値配列を`recommended`とすること。
+
+★★
+1. 整数配列インデキシングを使う。
+
+
+
