@@ -57,5 +57,38 @@ RA = np.array([
                [np.nan, np.nan, 5,      3,      4,      2,      np.nan, 1,      np.nan, np.nan],
 ])
 Iu = [I[~np.isnan(RA[u])] for u in U]
+
+def confusion_matrix(u, RS, K):
+    """
+    ユーザu向け推薦リストRSの上位K件における混同行列の各値を返す。
+
+    Parameters
+    ----------
+    u : int
+        ユーザuのID
+    RS : ndarray
+        推薦リストRS
+    K : int
+        上位K件
+
+    Returns
+    -------
+    int
+        TP
+    int
+        FN
+    int
+        FP
+    int
+        TN
+    """
+    like = R[u,Iu[u]]>=4
+    recommended = RS[u,Iu[u]]<=K
+    TP = np.count_nonzero(np.logical_and(like, recommended))
+    FN = np.count_nonzero(np.logical_and(like, ~recommended))
+    FP = np.count_nonzero(np.logical_and(~like, recommended))
+    TN = np.count_nonzero(np.logical_and(~like, ~recommended))
+    return TP, FN, FP, TN
 ```
 
+## 
