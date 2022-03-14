@@ -454,12 +454,13 @@ $$
 コード
 ```python
 【    問21    】
-print('DuL = {}'.format(DuL))
+print('DuL = \n{}'.format(DuL))
 ```
 
 結果
 ```bash
-DuL = [[ 5.  3.  1.]
+DuL = 
+[[ 5.  3.  1.]
  [ 6.  2.  1.]
  [ 4.  1.  1.]
  [ 8.  5. -1.]
@@ -529,12 +530,13 @@ print('|DuL-| = {}'.format(【    問24    】))
 コード
 ```python
 【    問25    】
-print('DuU = {}'.format(DuU))
+print('DuU = \n{}'.format(DuU))
 ```
 
 結果
 ```bash
-DuU = [[ 4.  2. nan]
+DuU = 
+[[ 4.  2. nan]
  [ 5.  1. nan]
  [ 8.  6. nan]
  [ 3.  4. nan]
