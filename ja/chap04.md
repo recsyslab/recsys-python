@@ -409,12 +409,12 @@ def order(u, I):
 
     Returns
     -------
-    dict
-        (アイテムID: スコア)をペアにした辞書型の推薦リスト
+    list
+        タプル(アイテムID: スコア)を要素にした推薦リスト
     """
     scores = {i: score(u, i) for i in I}
     【    問10    】
-    rec_list = dict(sorted(scores.items(), key=lambda x:x[1], reverse=True)[:TOP_K])
+    rec_list = sorted(scores.items(), key=lambda x:x[1], reverse=True)[:TOP_K]
     return rec_list
 ```
 
@@ -423,13 +423,15 @@ def order(u, I):
 u = 0
 rec_list = order(u, Iu_not)
 print('rec_list = ')
-pprint.pprint(rec_list)
+for i, scr in rec_list:
+    print('{}: {:.3f}'.format(i, scr))
 ```
 
 結果
 ```bash
 rec_list = 
-{7: 1.0, 8: 1.0}
+7: 1.000
+8: 1.000
 ```
 
 このとき、関数の仕様を満たすように、次の問いに答えなさい。
