@@ -64,11 +64,7 @@ $$
 $$
 
 $$
-a = b
-$$
-
-$$
-\hat{\boldsymbol{R}^{B} = \left[
+\hat{\boldsymbol{R}}^{B} = \left[
  \begin{array}{rrrrrrrrrr}
  -  & 3 & - & - & - & - & 1 & - & - & - \\
  -  & - & - & - & 3 & - & - & - & 4 & - \\
