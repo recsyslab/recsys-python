@@ -16,7 +16,7 @@ $$
 $$
 
 $$
-\boldsymbol{R} = \left[
+\hat{\boldsymbol{R}}^{A} = \left[
  \begin{array}{rrrrrrrrrr}
  -  & 2 & - & - & - & - & 2 & - & - & - \\
  -  & - & - & - & 2 & - & - & - & 3 & - \\
@@ -26,7 +26,7 @@ $$
 $$
 
 $$
-\boldsymbol{R} = \left[
+\hat{\boldsymbol{R}^{B} = \left[
  \begin{array}{rrrrrrrrrr}
  -  & 3 & - & - & - & - & 1 & - & - & - \\
  -  & - & - & - & 3 & - & - & - & 4 & - \\
