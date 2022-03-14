@@ -344,47 +344,18 @@ def score(u, i):
     return scr
 ```
 
-順序付け関数$$\mathrm{order}(u, I)$$は、アイテム集合$$I$$が与えられたとき、ユーザ$$u$$向けの推薦リストを返す関数である。ここでは、スコア上位$$K$$件のアイテム集合を推薦リストとして返すものとする。ただし、$$\mathrm{score}(u, i) < 0$$となるアイテム$$i$$は推薦リストから除外する。この順序付け関数を次のコードのとおり定義する。
-
-関数
-```python
-def order(u, I):
-    """
-    順序付け関数：アイテム集合Iにおいて、ユーザu向けの推薦リストを返す。
-
-    Parameters
-    ----------
-    u : int
-        ユーザuのID
-    I : ndarray
-        アイテム集合
-
-    Returns
-    -------
-    list
-        タプル(アイテムID: スコア)を要素にした推薦リスト
-    """
-    scores = {i: score(u, i) for i in I}
-    scores = {i:scr for i,scr in scores.items() if scr >= 0}
-    rec_list = sorted(scores.items(), key=lambda x:x[1], reverse=True)[:TOP_K]
-    return rec_list
-```
-
 コード
 ```python
 u = 0
-rec_list = order(u, Iu_not)
-print('rec_list = ')
-for i, scr in rec_list:
-    print('{}: {:.3f}'.format(i, scr))
+scores = {i: score(u, i) for i in Iu_not}
+print('scores = ')
+pprint.pprint(scores)
 ```
 
 結果
 ```bash
-rec_list = 
-10: 0.965
-12: 0.189
-11: 0.055
+scores = 
+{10: 0.9646054787625311, 11: 0.05517691284650013, 12: 0.18936236007174223}
 ```
 
 このとき、関数の仕様を満たすように、次の問いに答えなさい。
