@@ -16,7 +16,7 @@ $$
 \right]
 $$
 
-次の評価値行列$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$は、それぞれ推薦システムA、推薦システムBによる予測評価値である。
+次の評価値行列$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$は、それぞれ推薦システムA、推薦システムBによる予測評価値である。$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$の$$(u, i)$$成分は、それぞれ推薦システムA、推薦システムBによる予測評価値$$\hat{r}_{u,i}$$を表す。
 
 $$
 \hat{\boldsymbol{R}}^{A} = \left[
