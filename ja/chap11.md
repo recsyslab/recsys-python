@@ -62,9 +62,9 @@ RA = np.array([
 
 # 推薦システムBによる予測評価値
 RB = np.array([
-              [np.nan, 3,      np.nan, np.nan, np.nan, np.nan, 1,      np.nan, np.nan, np.nan],
-              [np.nan, np.nan, np.nan, np.nan, 3,      np.nan, np.nan, np.nan, 4,      np.nan],
-              [np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, 4,      np.nan, np.nan],
+               [np.nan, 3,      np.nan, np.nan, np.nan, np.nan, 1,      np.nan, np.nan, np.nan],
+               [np.nan, np.nan, np.nan, np.nan, 3,      np.nan, np.nan, np.nan, 4,      np.nan],
+               [np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, 4,      np.nan, np.nan],
 ])
 ```
 
