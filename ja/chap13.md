@@ -91,4 +91,59 @@ def confusion_matrix(u, RS, K):
     return TP, FN, FP, TN
 ```
 
-## 
+## 平均逆順位
+平均逆順位$$\mathit{MRR}$$は次式で定義される。
+
+$$
+\mathit{MRR} = \frac{1}{\mid U \mid} \sum_{u \in U} \frac{1}{k_{u}}
+$$
+
+ここで、$$k_{u}$$はユーザ$$u$$向けの推薦リストにおいて最初にユーザ$$u$$が好きなアイテムが見つかったときの順位を表す。ここでは、評価値が4以上のアイテムを好きなアイテムとみなす。
+
+コード
+```python
+u = 0
+【    問01    】
+print('like = \n{}'.format(like))
+【    問02    】
+print('ku = {}'.format(ku))
+【    問03    】
+print('MRR = {:.3f}'.format(MRR))
+```
+
+結果
+```bash
+like = 
+[[ True  True False False  True  True False False False False]
+ [False False False False False False  True False  True False]
+ [ True False False  True  True False False False False False]]
+ku = [1. 2. 3.]
+MRR = 0.611
+```
+
+このとき、次の問いに答えなさい。
+
+### 01 好きなアイテムか否かの判定
+`R`において、評価値が4以上の要素には`True`を、4未満の要素には`False`を入れたブール値配列を生成するコードを書きなさい。得られたブール値配列を`like`とすること。
+
+★
+1. 比較演算子を使う。
+
+### 02 最初に好きなアイテムが見つかったときの順位
+各ユーザ向けの推薦リストにおいて最初にそのユーザが好きなアイテムが見つかったときの順位$$k_{u}$$を`ndarray`としてまとめて求めるコードを書きなさい。得られた`ndarray`を`ku`とすること。
+
+★★★
+1. リスト内包表記を使う。
+2. ブール値インデキシングを使う。
+3. `numpy.nanmin()`を使う。
+4. `numpy.array()`を使う。
+
+### 03 MRR
+$$\mathit{MRR}$$を求めるコードを書きなさい。得られた値を`MRR`とすること。
+
+★★★
+1. リスト内包表記を使う。
+2. `numpy.sum()`を使う。
+3. `ndarray.size`を使う。
+
+
