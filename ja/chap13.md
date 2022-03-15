@@ -146,4 +146,41 @@ $$\mathit{MRR}$$を求めるコードを書きなさい。得られた値を`MRR
 2. `numpy.sum()`を使う。
 3. `ndarray.size`を使う。
 
+## 平均適合率
+ユーザ$$u$$向けの平均逆順位$$\mathit{AP}_{u}$$は次式で定義される。
 
+$$
+\mathit{AP}_{u} = \frac{1}{\sum_{k=1}^{K} \mathit{rel}_k} \sum_{k=1}^{K} \mathit{rel}_k \cdot \mathit{precision}@k
+$$
+
+$$
+\mathit{rel}_k =
+    \begin{cases}
+        1 & (\text{第$k$位が好きなアイテムであるとき}) \\
+        0 & (\text{otherwise})
+    \end{cases}
+$$
+ここで、$$k_{u}$$はユーザ$$u$$向けの推薦リストにおいて最初にユーザ$$u$$が好きなアイテムが見つかったときの順位を表す。ここでは、評価値が4以上のアイテムを好きなアイテムとみなす。
+
+コード
+```python
+u = 0
+【    問01    】
+print('like = \n{}'.format(like))
+【    問02    】
+print('ku = {}'.format(ku))
+【    問03    】
+print('MRR = {:.3f}'.format(MRR))
+```
+
+結果
+```bash
+like = 
+[[ True  True False False  True  True False False False False]
+ [False False False False False False  True False  True False]
+ [ True False False  True  True False False False False False]]
+ku = [1. 2. 3.]
+MRR = 0.611
+```
+
+このとき、次の問いに答えなさい。
