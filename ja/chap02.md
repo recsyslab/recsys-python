@@ -1,3 +1,8 @@
+---
+title: 第2章 評価値行列 | recsys-python
+layout: default
+---
+
 {% include header.html %}
 
 # 第2章 評価値行列

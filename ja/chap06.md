@@ -1,3 +1,8 @@
+---
+title: 第6章 アイテムベース協調フィルタリング | recsys-python
+layout: default
+---
+
 {% include header.html %}
 
 # 第6章 アイテムベース協調フィルタリング

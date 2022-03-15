@@ -1,3 +1,8 @@
+---
+title: 第7章 評価履歴の次元削減 | recsys-python
+layout: default
+---
+
 {% include header.html %}
 
 # 第7章 評価履歴の次元削減

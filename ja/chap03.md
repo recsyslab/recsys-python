@@ -1,3 +1,8 @@
+---
+title: 第3章 内容ベース推薦システム | 類似度に基づく推薦 | recsys-python
+layout: default
+---
+
 {% include header.html %}
 
 # 第3章 内容ベース推薦システム | 類似度に基づく推薦

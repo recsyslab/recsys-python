@@ -1,3 +1,8 @@
+---
+title: 第5章 ユーザベース協調フィルタリング | recsys-python
+layout: default
+---
+
 {% include header.html %}
 
 # 第5章 ユーザベース協調フィルタリング

@@ -1,3 +1,8 @@
+---
+title: README | recsys-python
+layout: default
+---
+
 {% include header.html %}
 
 ## Welcome to GitHub Pages

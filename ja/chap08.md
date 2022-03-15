@@ -1,3 +1,8 @@
+---
+title: 第8章 評価値行列の次元削減 | recsys-python
+layout: default
+---
+
 {% include header.html %}
 
 # 第8章 評価値行列の次元削減

@@ -1,3 +1,8 @@
+---
+title: 第4章 内容ベース推薦システム | k近傍法 | recsys-python
+layout: default
+---
+
 {% include header.html %}
 
 # 第4章 内容ベース推薦システム | k近傍法
