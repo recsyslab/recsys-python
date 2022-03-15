@@ -10,13 +10,11 @@ $$
 \boldsymbol{R}^{\mathit{test}} = \left[
  \begin{array}{rrrrrrrrrr}
   5 & 4 & 3 & - & 5 & 4 & 2 & 2 & - & - \\
-  3 & 3 & 3 & 3 & 2 & - & 4 & - & 5 & - \\
-  4 & - & 3 & 5 & 4 & 3 & - & 3 & - & - \\
  \end{array}
 \right]
 $$
 
-次の行列$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$は、それぞれ推薦システムA、推薦システムBによる推薦リストである。$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$の$$(u, i)$$成分は、それぞれユーザ$$u$$向けの推薦システムA、推薦システムBによる推薦リストにおける順位を表す。ただし、ここでは、ユーザ$$u = 0$$向けの推薦リストのみを示している。
+次の行列$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$は、それぞれ推薦システムA、推薦システムBによる推薦リストである。$$\hat{\boldsymbol{R}}^{A}$$、$$\hat{\boldsymbol{R}}^{B}$$の$$(u, i)$$成分は、それぞれユーザ$$u$$向けの推薦システムA、推薦システムBによる推薦リストにおける順位を表す。
 
 $$
 \hat{\boldsymbol{R}}^{A} = \left[
@@ -43,8 +41,6 @@ import numpy as np
 # テストデータ
 R = np.array([
               [5, 4,      3, np.nan, 5, 4,      2,      2,      np.nan, np.nan],
-              [3, 3,      3, 3,      2, np.nan, 4,      np.nan, 5,      np.nan],
-              [4, np.nan, 3, 5,      4, 3,      np.nan, 3,      np.nan, np.nan],
 ])
 U = np.arange(R.shape[0])
 I = np.arange(R.shape[1])
