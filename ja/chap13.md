@@ -264,72 +264,48 @@ $$
 \mathit{DCG}_{u} = \sum_{i \in I_{u}^{\mathit{rec}}, k_{i} \leq K} \frac{r_{u,i}}{\max (1, \log_{\alpha} k_{i})}
 $$
 
-ここで、$$I_{u}^{\mathit{rec}}$$はユーザ$$u$$向けの推薦リストに含まれるアイテム集合である。
+ここで、$$I_{u}^{\mathit{rec}}$$はユーザ$$u$$向けの推薦リストに含まれるアイテム集合である。$$k_{i}$$は推薦リストにおけるアイテム$$i$$の順位を表す。$$\alpha$$は対数の底$であり、ここでは、$$\alpha = 2$$とする。
+
+ユーザ$$u$$向けの推薦リストの$\mathit{nDCG}_{u}$は次式で定義される。
 
 $$
-\mathit{AP}_{u} = \frac{1}{\sum_{k=1}^{K} \mathit{rel}_k} \sum_{k=1}^{K} \mathit{rel}_k \cdot \mathit{precision}@k
+\mathit{nDCG}_{u} = \frac{\mathit{DCG}_{u}}{\mathit{IDCG}_{u}}
 $$
 
-ここで、$$\mathit{precision}@k$$は順位$$k$$における適合率を表す。$$\mathit{rel}_k$$は次式で定義される。
+ここで、$$\mathit{IDCG}_{u}$$は、ユーザ$$u$$のテストデータを理想的な順位に並べ替えた推薦リストのDCGを表す。すべてのユーザのnDCGの平均値を$$\mathit{nDCG}$$とすると、次式で定義される。
 
 $$
-\mathit{rel}_k =
-    \begin{cases}
-        1 & (\text{第$k$位が好きなアイテムであるとき}) \\
-        0 & (\text{otherwise})
-    \end{cases}
-$$
-
-また、すべてのユーザの平均適合率を平均した$$\mathit{MAP}$$は次式で定義される。
-
-$$
-\mathit{MAP} = \frac{1}{\mid U \mid} \sum_{u \in U} \mathit{AP}_{u}
+\mathit{nDCG} = \frac{1}{\mid U \mid} \sum_{u \in U} \mathit{nDCG}_{u}
 $$
 
 コード
 ```python
-# 各順位における適合率
-precisions = []
-for u in U:
-    precisions_u = []
-    for k in range(1, Iu[u].size+1):
-        TP, FN, FP, TN = confusion_matrix(u, RA, k)
-        precision_uk = TP / (TP + FP)
-        precisions_u.append(precision_uk)
-    precisions.append(precisions_u)
-precisions = np.array(precisions)
-print('precisions = \n{}'.format(precisions))
+【    問09    】
+print('DCGu = {}'.format(DCGu))
 
-【    問04    】
-print('ranked_R = \n{}'.format(ranked_R))
-【    問05    】
-print('ranked_like = \n{}'.format(ranked_like))
-【    問06    】
-print('rel = \n{}'.format(rel))
-【    問07    】
-print('APu = {}'.format(APu))
-【    問08    】
-print('MAP = {:.3f}'.format(MAP))
+【    問10    】
+print('RI = \n{}'.format(RI))
+【    問11    】
+print('IuI = {}'.format(Iu))
+【    問12    】
+print('IDCGu = {}'.format(IDCGu))
+【    問13    】
+print('nDCGu = {}'.format(nDCGu))
+【    問14    】
+print('nDCG = {:.3f}'.format(nDCG))
 ```
 
 結果
 ```bash
-precisions = 
-[[1.    1.    0.667 0.75  0.6  ]
- [0.    0.5   0.333 0.25  0.4  ]
- [0.    0.    0.333 0.5   0.4  ]]
-ranked_R = 
-[[ 5.  4.  3.  5.  2.  4. nan  2. nan nan]
- [ 3.  5.  3.  3.  4.  3.  2. nan nan nan]
- [ 3.  3.  5.  4.  3.  4. nan nan nan nan]]
-ranked_like = 
-[[ True  True False  True False  True False False False False]
- [False  True False False  True False False False False False]
- [False False  True  True False  True False False False False]]
-rel = 
-[[1 1 0 1 0 1 0 0 0 0]
- [0 1 0 0 1 0 0 0 0 0]
- [0 0 1 1 0 1 0 0 0 0]]
-APu = [0.917 0.45  0.417]
-MAP = 0.594
+DCGu = [14.254 13.115 12.447]
+RI = 
+[[ 1  3  5  8  2  4  6  7  9 10]
+ [ 3  4  5  6  7  8  2  9  1 10]
+ [ 2  7  4  1  3  5  8  6  9 10]]
+IuI = [array([0, 2, 4, 5, 6]), array([0, 1, 3, 6, 8]), array([2, 3, 4, 5, 7])]
+IDCGu = [15.816 13.685 14.316]
+nDCGu = [0.901 0.958 0.869]
+nDCG = 0.910
 ```
+
+このとき、次の問いに答えなさい。
