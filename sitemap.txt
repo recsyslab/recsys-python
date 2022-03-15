@@ -1,0 +1,14 @@
+https://recsyslab.github.io/recsys-python/ja/chap01
+https://recsyslab.github.io/recsys-python/ja/chap02
+https://recsyslab.github.io/recsys-python/ja/chap03
+https://recsyslab.github.io/recsys-python/ja/chap04
+https://recsyslab.github.io/recsys-python/ja/chap05
+https://recsyslab.github.io/recsys-python/ja/chap06
+https://recsyslab.github.io/recsys-python/ja/chap07
+https://recsyslab.github.io/recsys-python/ja/chap08
+https://recsyslab.github.io/recsys-python/ja/chap09
+https://recsyslab.github.io/recsys-python/ja/chap10
+https://recsyslab.github.io/recsys-python/ja/chap11
+https://recsyslab.github.io/recsys-python/ja/chap12
+https://recsyslab.github.io/recsys-python/ja/chap13
+https://recsyslab.github.io/recsys-python/
