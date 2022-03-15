@@ -1,13 +1,3 @@
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-78BW75TFPQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-78BW75TFPQ');
-</script>
-
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/recsyslab/recsys-python/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
