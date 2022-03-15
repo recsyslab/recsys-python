@@ -34,7 +34,7 @@ $$
 ```python
 import math
 import numpy as np
-from scipy.stats import rankdata
+np.set_printoptions(precision=3)
 
 # 上位K件
 TOP_K = 5
@@ -198,9 +198,9 @@ print('MAP = {:.3f}'.format(MAP))
 結果
 ```bash
 precisions = 
-[[1.         1.         0.66666667 0.75       0.6       ]
- [0.         0.5        0.33333333 0.25       0.4       ]
- [0.         0.         0.33333333 0.5        0.4       ]]
+[[1.    1.    0.667 0.75  0.6  ]
+ [0.    0.5   0.333 0.25  0.4  ]
+ [0.    0.    0.333 0.5   0.4  ]]
 ranked_R = 
 [[ 5.  4.  3.  5.  2.  4. nan  2. nan nan]
  [ 3.  5.  3.  3.  4.  3.  2. nan nan nan]
@@ -213,7 +213,7 @@ rel =
 [[1 1 0 1 0 1 0 0 0 0]
  [0 1 0 0 1 0 0 0 0 0]
  [0 0 1 1 0 1 0 0 0 0]]
-APu = [0.91666667 0.45       0.41666667]
+APu = [0.917 0.45  0.417]
 MAP = 0.594
 ```
 
@@ -257,3 +257,79 @@ MAP = 0.594
 1. `numpy.sum()`を使う。
 2. `ndarray.size`を使う。
 
+## DCG
+ユーザ$$u$$向けの推薦リストの$$\mathit{DCG}_{u}$$は次式で定義される。
+
+$$
+\mathit{DCG}_{u} = \sum_{i \in I_{u}^{\mathit{rec}}, k_{i} \leq K} \frac{r_{u,i}}{\max (1, \log_{\alpha} k_{i})}
+$$
+
+ここで、$$I_{u}^{\mathit{rec}}$$はユーザ$$u$$向けの推薦リストに含まれるアイテム集合である。
+
+$$
+\mathit{AP}_{u} = \frac{1}{\sum_{k=1}^{K} \mathit{rel}_k} \sum_{k=1}^{K} \mathit{rel}_k \cdot \mathit{precision}@k
+$$
+
+ここで、$$\mathit{precision}@k$$は順位$$k$$における適合率を表す。$$\mathit{rel}_k$$は次式で定義される。
+
+$$
+\mathit{rel}_k =
+    \begin{cases}
+        1 & (\text{第$k$位が好きなアイテムであるとき}) \\
+        0 & (\text{otherwise})
+    \end{cases}
+$$
+
+また、すべてのユーザの平均適合率を平均した$$\mathit{MAP}$$は次式で定義される。
+
+$$
+\mathit{MAP} = \frac{1}{\mid U \mid} \sum_{u \in U} \mathit{AP}_{u}
+$$
+
+コード
+```python
+# 各順位における適合率
+precisions = []
+for u in U:
+    precisions_u = []
+    for k in range(1, Iu[u].size+1):
+        TP, FN, FP, TN = confusion_matrix(u, RA, k)
+        precision_uk = TP / (TP + FP)
+        precisions_u.append(precision_uk)
+    precisions.append(precisions_u)
+precisions = np.array(precisions)
+print('precisions = \n{}'.format(precisions))
+
+【    問04    】
+print('ranked_R = \n{}'.format(ranked_R))
+【    問05    】
+print('ranked_like = \n{}'.format(ranked_like))
+【    問06    】
+print('rel = \n{}'.format(rel))
+【    問07    】
+print('APu = {}'.format(APu))
+【    問08    】
+print('MAP = {:.3f}'.format(MAP))
+```
+
+結果
+```bash
+precisions = 
+[[1.    1.    0.667 0.75  0.6  ]
+ [0.    0.5   0.333 0.25  0.4  ]
+ [0.    0.    0.333 0.5   0.4  ]]
+ranked_R = 
+[[ 5.  4.  3.  5.  2.  4. nan  2. nan nan]
+ [ 3.  5.  3.  3.  4.  3.  2. nan nan nan]
+ [ 3.  3.  5.  4.  3.  4. nan nan nan nan]]
+ranked_like = 
+[[ True  True False  True False  True False False False False]
+ [False  True False False  True False False False False False]
+ [False False  True  True False  True False False False False]]
+rel = 
+[[1 1 0 1 0 1 0 0 0 0]
+ [0 1 0 0 1 0 0 0 0 0]
+ [0 0 1 1 0 1 0 0 0 0]]
+APu = [0.917 0.45  0.417]
+MAP = 0.594
+```
