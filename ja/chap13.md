@@ -49,6 +49,7 @@ R = np.array([
 ])
 U = np.arange(R.shape[0])
 I = np.arange(R.shape[1])
+Iu = [I[~np.isnan(R)[u,:]] for u in U]
 
 # 推薦システムAによる推薦リスト
 RA = np.array([
@@ -56,7 +57,6 @@ RA = np.array([
                [4,      1,      np.nan, 3,      np.nan, np.nan, 5,      np.nan, 2,      np.nan],
                [np.nan, np.nan, 5,      3,      4,      2,      np.nan, 1,      np.nan, np.nan],
 ])
-Iu = [I[~np.isnan(RA[u])] for u in U]
 
 def confusion_matrix(u, RS, K):
     """
@@ -180,7 +180,6 @@ for u in U:
         precision_uk = TP / (TP + FP)
         precisions_u.append(precision_uk)
     precisions.append(precisions_u)
-precisions = np.array(precisions)
 print('precisions = \n{}'.format(precisions))
 
 【    問04    】
@@ -198,9 +197,7 @@ print('MAP = {:.3f}'.format(MAP))
 結果
 ```bash
 precisions = 
-[[1.    1.    0.667 0.75  0.6  ]
- [0.    0.5   0.333 0.25  0.4  ]
- [0.    0.    0.333 0.5   0.4  ]]
+[[1.0, 1.0, 0.6666666666666666, 0.75, 0.6, 0.6, 0.6], [0.0, 0.5, 0.3333333333333333, 0.25, 0.4, 0.4, 0.4], [0.0, 0.0, 0.3333333333333333, 0.5, 0.4, 0.4]]
 ranked_R = 
 [[ 5.  4.  3.  5.  2.  4. nan  2. nan nan]
  [ 3.  5.  3.  3.  4.  3.  2. nan nan nan]
@@ -272,7 +269,7 @@ $$
 \mathit{nDCG}_{u} = \frac{\mathit{DCG}_{u}}{\mathit{IDCG}_{u}}
 $$
 
-ここで、$$\mathit{IDCG}_{u}$$は、ユーザ$$u$$のテストデータを理想的な順位に並べ替えた推薦リストのDCGを表す。すべてのユーザのnDCGの平均値を$$\mathit{nDCG}$$とすると、次式で定義される。
+ここで、$$\mathit{IDCG}_{u}$$は、ユーザ$$u$$のテストデータを理想的な順位（評価値が高い順）に並べ替えた推薦リストのDCGを表す。すべてのユーザのnDCGの平均値を$$\mathit{nDCG}$$とすると、次式で定義される。
 
 $$
 \mathit{nDCG} = \frac{1}{\mid U \mid} \sum_{u \in U} \mathit{nDCG}_{u}
@@ -280,13 +277,14 @@ $$
 
 コード
 ```python
+Iu_rec = [I[~np.isnan(RA[u])] for u in U]
 【    問09    】
 print('DCGu = {}'.format(DCGu))
 
 【    問10    】
 print('RI = \n{}'.format(RI))
 【    問11    】
-print('IuI = {}'.format(Iu))
+print('Iu_recI = \n{}'.format(Iu_recI))
 【    問12    】
 print('IDCGu = {}'.format(IDCGu))
 【    問13    】
@@ -302,10 +300,31 @@ RI =
 [[ 1  3  5  8  2  4  6  7  9 10]
  [ 3  4  5  6  7  8  2  9  1 10]
  [ 2  7  4  1  3  5  8  6  9 10]]
-IuI = [array([0, 2, 4, 5, 6]), array([0, 1, 3, 6, 8]), array([2, 3, 4, 5, 7])]
+Iu_recI = 
+[[0 1 2 4 5]
+ [0 1 2 6 8]
+ [0 2 3 4 5]]
 IDCGu = [15.816 13.685 14.316]
 nDCGu = [0.901 0.958 0.869]
 nDCG = 0.910
 ```
 
 このとき、次の問いに答えなさい。
+
+### 09 DCGu
+各ユーザの$$\mathit{DCG}_{u}を`ndarray`としてまとめて求めるコードを書きなさい。ただし、$$\alpha$$は`ALPHA`とする。得られた`ndarray`を`DCGu`とすること。
+
+★★★
+1. 二重のリスト内包表記を使う。
+2. `math.log()`を使う。
+3. `numpy.max()`を使う。
+4. `numpy.sum()`を使う。
+5. `numpy.array()`を使う。
+
+### 10 理想的な推薦リスト
+各ユーザにとっての理想的な推薦リストを`ndarray`として生成するコードを書きなさい。生成した`ndarray`を`RI`とすること。
+
+★★★
+1. `numpy.argsort()`を2回使う。
+
+
