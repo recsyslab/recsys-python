@@ -147,11 +147,13 @@ $$\mathit{MRR}$$を求めるコードを書きなさい。得られた値を`MRR
 3. `ndarray.size`を使う。
 
 ## 平均適合率
-ユーザ$$u$$向けの平均逆順位$$\mathit{AP}_{u}$$は次式で定義される。
+第$$K$$位までのユーザ$$u$$向けの推薦リストの平均逆順位$$\mathit{AP}_{u}$$は次式で定義される。
 
 $$
 \mathit{AP}_{u} = \frac{1}{\sum_{k=1}^{K} \mathit{rel}_k} \sum_{k=1}^{K} \mathit{rel}_k \cdot \mathit{precision}@k
 $$
+
+ここで、$$\mathit{precision}@k$$は順位$$k$$における適合率を表す。$$\mathit{rel}_k$$は次式で定義される。
 
 $$
 \mathit{rel}_k =
@@ -160,17 +162,32 @@ $$
         0 & (\text{otherwise})
     \end{cases}
 $$
-ここで、$$k_{u}$$はユーザ$$u$$向けの推薦リストにおいて最初にユーザ$$u$$が好きなアイテムが見つかったときの順位を表す。ここでは、評価値が4以上のアイテムを好きなアイテムとみなす。
+
+また、すべてのユーザの平均適合率を平均した$$\mathit{MAP}$$は次式で定義される。
+
+$$
+\mathit{MAP} = \frac{1}{\mid U \mid} \sum_{u \in U} \mathit{AP}_{u}
+$$
 
 コード
 ```python
-u = 0
-【    問01    】
-print('like = \n{}'.format(like))
-【    問02    】
-print('ku = {}'.format(ku))
-【    問03    】
-print('MRR = {:.3f}'.format(MRR))
+# 各順位における適合率
+precisions = []
+for u in U:
+    precisions_u = []
+    for k in range(1, Iu[u].size+1):
+        TP, FN, FP, TN = confusion_matrix(u, RA, k)
+        precision_uk = TP / (TP + FP)
+        precisions_u.append(precision_uk)
+    precisions.append(precisions_u)
+precisions = np.array(precisions)
+
+【    問04    】
+print('rel = \n{}'.format(rel))
+【    問05    】
+print('APu = {}'.format(APu))
+【    問06    】
+print('MAP = {:.3f}'.format(MAP))
 ```
 
 結果
