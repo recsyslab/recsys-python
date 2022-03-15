@@ -104,7 +104,8 @@ $$
 
 ここで、$$k_{u}$$はユーザ$$u$$向けの推薦リストにおいて最初にユーザ$$u$$が好きなアイテムが見つかったときの順位を表す。ここでは、評価値が4以上のアイテムを好きなアイテムとみなす。
 
-コード
+###### コード
+
 ```python
 u = 0
 【    問01    】
@@ -115,7 +116,8 @@ print('ku = {}'.format(ku))
 print('MRR = {:.3f}'.format(MRR))
 ```
 
-結果
+###### 結果
+
 ```bash
 like = 
 [[ True  True False False  True  True False False False False]
