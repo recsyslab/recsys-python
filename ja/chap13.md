@@ -181,23 +181,79 @@ for u in U:
         precisions_u.append(precision_uk)
     precisions.append(precisions_u)
 precisions = np.array(precisions)
+print('precisions = \n{}'.format(precisions))
 
 【    問04    】
-print('rel = \n{}'.format(rel))
+print('ranked_R = \n{}'.format(ranked_R))
 【    問05    】
-print('APu = {}'.format(APu))
+print('ranked_like = \n{}'.format(ranked_like))
 【    問06    】
+print('rel = \n{}'.format(rel))
+【    問07    】
+print('APu = {}'.format(APu))
+【    問08    】
 print('MAP = {:.3f}'.format(MAP))
 ```
 
 結果
 ```bash
-like = 
-[[ True  True False False  True  True False False False False]
- [False False False False False False  True False  True False]
- [ True False False  True  True False False False False False]]
-ku = [1. 2. 3.]
-MRR = 0.611
+precisions = 
+[[1.         1.         0.66666667 0.75       0.6       ]
+ [0.         0.5        0.33333333 0.25       0.4       ]
+ [0.         0.         0.33333333 0.5        0.4       ]]
+ranked_R = 
+[[ 5.  4.  3.  5.  2.  4. nan  2. nan nan]
+ [ 3.  5.  3.  3.  4.  3.  2. nan nan nan]
+ [ 3.  3.  5.  4.  3.  4. nan nan nan nan]]
+ranked_like = 
+[[ True  True False  True False  True False False False False]
+ [False  True False False  True False False False False False]
+ [False False  True  True False  True False False False False]]
+rel = 
+[[1 1 0 1 0 1 0 0 0 0]
+ [0 1 0 0 1 0 0 0 0 0]
+ [0 0 1 1 0 1 0 0 0 0]]
+APu = [0.91666667 0.45       0.41666667]
+MAP = 0.594
 ```
 
 このとき、次の問いに答えなさい。
+
+### 04 評価値行列の並べ替え
+`RA`に示された順位にしたがって、`R`の各行をユーザごとの推薦順位の昇順に並べ替えた`ndarray`を生成するコードを書きなさい。生成した`ndarray`を`ranked_R`とすること。
+
+★★★
+1. リスト内包表記を使う。
+2. `numpy.argsort()`を使う。
+3. `numpy.array()`を使う。
+
+### 05 好きなアイテムか否かの判定
+`ranked_R`において、評価値が4以上の要素には`True`を、4未満の要素には`False`を入れたブール値配列を生成するコードを書きなさい。得られたブール値配列を`ranked_like`とすること。
+
+★
+1. 比較演算子を使う。
+
+### 06 好きなアイテムか否かの判定
+`ranked_like`において、`True`の要素には`1`を、`False`の要素には`0`を入れた`ndarray`を生成するコードを書きなさい。生成した`ndarray`を`rel`とすること。
+
+★★★
+1. リスト内包表記を使う。
+2. `map()`を使う。
+3. `list()`を使う。
+4. `numpy.array()`を使う。
+
+### 07 AP
+上位`TOP_K`件の推薦リストについて各ユーザの$$\mathit{AP}_{u}$$を`ndarray`としてまとめて求めるコードを書きなさい。得られた`ndarray`を`APu`とすること。
+
+★★★
+1. 二重のリスト内包表記を使う。
+2. `numpy.sum()`を使う。
+3. `numpy.array()`を使う。
+
+### 08 MAP
+上位`TOP_K`件の推薦リストについて$$\mathit{MAP}$$を求めるコードを書きなさい。得られた値を`MAP`とすること。
+
+★★
+1. `numpy.sum()`を使う。
+2. `ndarray.size`を使う。
+
