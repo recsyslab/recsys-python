@@ -249,7 +249,7 @@ MAP = 0.594
 3. `list()`を使う。
 4. `numpy.array()`を使う。
 
-### 07 AP
+### 07 各ユーザのAP
 上位`TOP_K`件の推薦リストについて各ユーザの$$\mathit{AP}_{u}$$を`ndarray`としてまとめて求めるコードを書きなさい。得られた`ndarray`を`APu`とすること。
 
 ★★★
@@ -323,7 +323,7 @@ nDCG = 0.910
 
 このとき、次の問いに答えなさい。
 
-### 09 DCGu
+### 09 各ユーザのDCG
 各ユーザの$$\mathit{DCG}_{u}$$を`ndarray`としてまとめて求めるコードを書きなさい。ただし、$$\alpha$$は`ALPHA`とする。得られた`ndarray`を`DCGu`とすること。
 
 ★★★
@@ -347,7 +347,7 @@ nDCG = 0.910
 2. ブール値インデキシングを使う。
 3. `numpy.array()`を使う。
 
-### 10 IDCGu
+### 10 各ユーザのIDCG
 各ユーザの$$\mathit{IDCG}_{u}$$を`ndarray`としてまとめて求めるコードを書きなさい。ただし、$$\alpha$$は`ALPHA`とする。得られた`ndarray`を`IDCGu`とすること。
 
 ★★★
@@ -357,7 +357,7 @@ nDCG = 0.910
 4. `numpy.sum()`を使う。
 5. `numpy.array()`を使う。
 
-### 11 nDCGu
+### 11 各ユーザのnDCG
 各ユーザの$$\mathit{nDCG}_{u}$$を`ndarray`としてまとめて求めるコードを書きなさい。得られた`ndarray`を`nDCGu`とすること。
 
 ★
