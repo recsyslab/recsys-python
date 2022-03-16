@@ -79,7 +79,8 @@ $$
 \mathit{MAE} = \frac{\sum_{(u,i) \in R^{\mathit{test}}} \mid \hat{r}_{u,i} - r_{u,i} \mid}{\mid R^{\mathit{test}} \mid}
 $$
 
-コード
+###### コード
+
 ```python
 【    問01    】
 print('MAE_{} = {:.3f}'.format('A', MAE_A))
@@ -87,7 +88,8 @@ print('MAE_{} = {:.3f}'.format('A', MAE_A))
 print('MAE_{} = {:.3f}'.format('B', MAE_B))
 ```
 
-結果
+###### 結果
+
 ```bash
 MAE_A = 0.800
 MAE_B = 1.000
@@ -125,7 +127,8 @@ $$
 \mathit{MSE} = \frac{\sum_{(u,i) \in R^{\mathit{test}}} (\hat{r}_{u,i} - r_{u,i})^{2}}{\mid R^{\mathit{test}} \mid}
 $$
 
-コード
+###### コード
+
 ```python
 【    問03    】
 print('MSE_{} = {:.3f}'.format('A', MSE_A))
@@ -133,7 +136,8 @@ print('MSE_{} = {:.3f}'.format('A', MSE_A))
 print('MSE_{} = {:.3f}'.format('B', MSE_B))
 ```
 
-結果
+###### 結果
+
 ```bash
 MSE_A = 1.600
 MSE_B = 1.000
@@ -168,7 +172,8 @@ $$
 \mathit{RMSE} = \sqrt{\frac{\sum_{(u,i) \in R^{\mathit{test}}} (\hat{r}_{u,i} - r_{u,i})^{2}}{\mid R^{\mathit{test}} \mid}}
 $$
 
-コード
+###### コード
+
 ```python
 print('MSE_{} = {:.3f}'.format('B', MSE_B))
 【    問05    】
@@ -177,7 +182,8 @@ print('RMSE_{} = {:.3f}'.format('A', RMSE_A))
 print('RMSE_{} = {:.3f}'.format('B', RMSE_B))
 ```
 
-結果
+###### 結果
+
 ```bash
 RMSE_A = 1.265
 RMSE_B = 1.000
@@ -228,7 +234,8 @@ $$
 
 ここで、$$r_{\mathit{max}}$$、$$r_{\mathit{min}}$$は、それぞれ、とりうる評価値の最大値、最小値を表す。
 
-コード
+###### コード
+
 ```python
 # NMAE
 【    問07    】
@@ -243,7 +250,8 @@ print('NRMSE_{} = {:.3f}'.format('A', NRMSE_A))
 print('NRMSE_{} = {:.3f}'.format('B', NRMSE_B))
 ```
 
-結果
+###### 結果
+
 ```bash
 NMAE_A = 0.200
 NMAE_B = 0.250

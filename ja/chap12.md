@@ -71,7 +71,8 @@ RB = np.array([
 
 ここでは、評価値が4以上のアイテムを好きなアイテムとみなす。次の関数は、ユーザ`u`向け推薦リスト`RS`の上位`K`件における混同行列の各値を返す関数である。
 
-関数
+###### 関数
+
 ```python
 def confusion_matrix(u, RS, K):
     """
@@ -112,7 +113,8 @@ def confusion_matrix(u, RS, K):
     return TP, FN, FP, TN
 ```
 
-コード
+###### コード
+
 ```python
 u = 0
 K = 3
@@ -120,7 +122,8 @@ TP, FN, FP, TN = confusion_matrix(u, RA, K)
 print('混同行列 = \n{}'.format(np.array([[TP, FN], [FP, TN]])))
 ```
 
-結果
+###### 結果
+
 ```bash
 like = [ True  True False  True  True False False]
 recommended@3 = [ True False  True False  True False False]
@@ -186,7 +189,8 @@ $$
 \mathit{FPR}@K = \frac{\mathit{FP}@K}{\mathit{FP}@K + \mathit{TN}@K}
 $$
 
-コード
+###### コード
+
 ```python
 【    問07    】
 print('TPR@{} = {:.3f}'.format(K, TPR))
@@ -194,7 +198,8 @@ print('TPR@{} = {:.3f}'.format(K, TPR))
 print('FPR@{} = {:.3f}'.format(K, FPR))
 ```
 
-結果
+###### 結果
+
 ```bash
 TPR@3 = 0.500
 FPR@3 = 0.333
@@ -233,7 +238,8 @@ $$
 F_{1}@K = \frac{2 \cdot \mathit{precision}@K \cdot \mathit{recall}@K}{\mathit{precision}@K + \mathit{recall}@K}
 $$
 
-コード
+###### コード
+
 ```python
 【    問09    】
 print('precision@{} = {:.3f}'.format(K, precision))
@@ -243,7 +249,8 @@ print('recall@{} = {:.3f}'.format(K, recall))
 print('F1@{} = {:.3f}'.format(K, F1))
 ```
 
-結果
+###### 結果
+
 ```bash
 precision@3 = 0.667
 recall@3 = 0.500

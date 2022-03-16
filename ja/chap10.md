@@ -61,7 +61,8 @@ $$
 
 ここで、$$\mid D_{u}^{L} \mid$$は訓練事例数である。$$\mid D_{u}^{L+} \mid$$、$$\mid D_{u}^{L-} \mid$$はそれぞれ訓練事例に含まれる正事例数、負事例数である。これらのジニ係数を返す関数を次のコードのとおり定義する。
 
-関数
+###### 関数
+
 ```python
 def G(DL):
     """
@@ -86,12 +87,14 @@ def G(DL):
     return gini
 ```
 
-コード
+###### コード
+
 ```python
 print('G(DuL) = {:.3f}'.format(G(DuL)))
 ```
 
-結果
+###### 結果
+
 ```bash
 G(DuL) = 0.480
 ```
@@ -148,7 +151,8 @@ def G_partitioned(DL0, DL1):
     return gini
 ```
 
-コード
+###### コード
+
 ```python
 # 特徴量kを含まない訓練事例集合
 k = 0
@@ -161,7 +165,8 @@ print('DuL1 = \n{}'.format(DuL1))
 print('G(DuL → [DuL0, DuL1]) = {:.3f}'.format(G_partitioned(DuL0, DuL1)))
 ```
 
-結果
+###### 結果
+
 ```bash
 DuL0 = 
 [[ 0.  1.  0.  0.  1.  0.  1.]
@@ -232,7 +237,8 @@ def get_ginis(DL):
 ### 07 レベル0の選択基準
 `get_ginis()`関数から得られた`ginis`からジニ係数が最小となる特徴量のインデックスを取得するコードを書きなさい。得られた値を`k0`とすること。
 
-コード
+###### コード
+
 ```python
 # レベル0（根ノード）の選択基準
 ginis = get_ginis(DuL)
@@ -246,7 +252,8 @@ print('DuL0 = \n{}'.format(DuL0))
 print('DuL1 = \n{}'.format(DuL1))
 ```
 
-結果
+###### 結果
+
 ```bash
 ginis = 
 {0: 0.26666666666666666,
@@ -389,7 +396,8 @@ def predict(u, i, key=0):
         return predict(u, i, key * 2 + 2)
 ```
 
-コード
+###### コード
+
 ```python
 dtree = {}
 train(DuL)
@@ -400,7 +408,8 @@ u = 0
 print('ruU_pred = {}'.format(ruU_pred))
 ```
 
-結果
+###### 結果
+
 ```bash
 dtree = {0: 2, 1: 0, 3: 3, 7: 5, 15: '+1', 16: '-1', 8: '+1', 4: '+1', 2: '-1'}
 ruU_pred = {10: 1, 11: -1, 12: -1}
