@@ -347,7 +347,7 @@ nDCG = 0.910
 2. ブール値インデキシングを使う。
 3. `numpy.array()`を使う。
 
-### 10 各ユーザのIDCG
+### 12 各ユーザのIDCG
 各ユーザの$$\mathit{IDCG}_{u}$$を`ndarray`としてまとめて求めるコードを書きなさい。ただし、$$\alpha$$は`ALPHA`とする。得られた`ndarray`を`IDCGu`とすること。
 
 ★★★
@@ -357,14 +357,14 @@ nDCG = 0.910
 4. `numpy.sum()`を使う。
 5. `numpy.array()`を使う。
 
-### 11 各ユーザのnDCG
+### 13 各ユーザのnDCG
 各ユーザの$$\mathit{nDCG}_{u}$$を`ndarray`としてまとめて求めるコードを書きなさい。得られた`ndarray`を`nDCGu`とすること。
 
 ★
 1. `DCGu`を参照する。
 2. `IDCGu`を参照する。
 
-### 12 nDCG
+### 14 nDCG
 $$\mathit{nDCG}$$を求めるコードを書きなさい。得られた値を`nDCG`とすること。
 
 ★★
