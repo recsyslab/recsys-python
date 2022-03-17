@@ -1,5 +1,21 @@
 {% include header.html %}
 
+# recsys-python
+
+## 概要
+recsys-pythonはPythonによる推薦システムの演習問題集です。
+
+## 到達目標
+
+- Pythonを学修しながら推薦システムの基本を修得できる。
+- 評価履歴や評価値行列を扱いながらNumPyによる行列演算やベクトル演算を修得できる。
+- 数式をPythonでコーディングする方法を修得できる。
+
+## 
+
+[目次](ja/)から
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/recsyslab/recsys-python/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
