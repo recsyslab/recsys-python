@@ -66,5 +66,6 @@ PythonおよびNumPyについては、下記の公式チュートリアルが参
 - [Python チュートリアル](https://docs.python.org/ja/3.9/tutorial/)
 - [Quickstart tutorial — NumPy Manual](https://docs.scipy.org/doc/numpy/user/quickstart.html)
 
+## 作成者
 
-
+奥 健太
