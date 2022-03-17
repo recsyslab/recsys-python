@@ -1,11 +1,11 @@
 ---
-title: 第10章 内容ベース推薦システム | 決定木 | recsys-python
+title: 第10章 決定木 | recsys-python
 layout: default
 ---
 
 {% include header.html %}
 
-# 第10章 内容ベース推薦システム | 決定木
+# 第10章 決定木
 
 ## 準備
 次のコードを書きなさい。
