@@ -6,7 +6,10 @@
 - [https://recsyslab.github.io/recsys-python/ja/](ja/)
 
 ## 概要
-recsys-pythonはPythonによる推薦システムの演習問題集です。
+recsys-pythonはPythonによる推薦システムの演習問題集です。推薦システムの基本である、評価履歴や評価値行列の扱いから、内容ベース推薦システム、近傍ベース協調フィルタリング、推薦システムの評価などに関する問題を取り揃えています。現時点では、13章構成で全163問用意しています（2022-03-17現在）。内容や問題数は今後変更や追加、削除する可能性もあります。
+
+## 動機
+[言語処理100本ノック](https://nlp100.github.io/ja/)を参考にさせて頂き、推薦システム版の演習問題集を開発したいと思ったのがきっかけです。個人での学修に加え、大学での授業やゼミ等で活用いただければ幸いです。
 
 ## 到達目標
 
@@ -30,6 +33,9 @@ recsys-pythonはPythonによる推薦システムの演習問題集です。
 
 ## 参考
 
-- [The Python Tutorial](https://docs.python.org/3/tutorial/)
+PythonおよびNumPyについては、下記の公式チュートリアルが参考になります。
+- [Python チュートリアル](https://docs.python.org/ja/3.9/tutorial/)
 - [Quickstart tutorial — NumPy Manual](https://docs.scipy.org/doc/numpy/user/quickstart.html)
+
+
 
