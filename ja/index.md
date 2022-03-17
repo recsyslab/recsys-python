@@ -1,5 +1,5 @@
 ---
-title: Pythonによる推薦システム問題集 | recsys-python
+title: 目次 | recsys-python
 layout: default
 ---
 
