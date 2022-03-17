@@ -1,11 +1,11 @@
 ---
-title: 第12章 推薦システムの評価 | 好き嫌い分類に基づく評価指標 | recsys-python
+title: 第12章 好き嫌い分類に基づく評価指標 | recsys-python
 layout: default
 ---
 
 {% include header.html %}
 
-# 第12章 推薦システムの評価 | 好き嫌い分類に基づく評価指標
+# 第12章 好き嫌い分類に基づく評価指標
 
 ## テストデータと推薦リスト
 次の評価値行列$$\boldsymbol{R}^{\mathit{test}}$$はテストデータである。$$\boldsymbol{R}$$の$$(u, i)$$成分はユーザ$$u$$がアイテム$$i$$に与えた評価値$$r_{u,i}$$を表す。ただし、$$-$$で示した要素はテストデータの対象ではないことを表す。また、$$\boldsymbol{R}^{\mathit{test}}$$に含まれる成分の集合を$$R^{\mathit{test}}$$と表す。
