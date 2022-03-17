@@ -66,6 +66,10 @@ PythonおよびNumPyについては、下記の公式チュートリアルが参
 - [Python チュートリアル](https://docs.python.org/ja/3.9/tutorial/)
 - [Quickstart tutorial — NumPy Manual](https://docs.scipy.org/doc/numpy/user/quickstart.html)
 
+演習問題に含まれる数式等については、下記出版予定の書籍にて解説しています。
+- 奥健太，『基礎から学ぶ推薦システム ～情報技術で嗜好を予測する～』，コロナ社，2022．（2022年6月下旬出版予定）
+- ※Pythonコードは本書には含まれておりません。
+
 ## 作成者
 
 奥 健太
