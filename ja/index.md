@@ -5,7 +5,7 @@ layout: default
 
 {% include header.html %}
 
-1. [評価履歴](chap01.md)
+## [第1章 評価履歴](chap01.md)
 2. [評価値行列](chap02.md)
 3. [内容ベース推薦システム：類似度に基づく推薦](chap03.md)
 4. [内容ベース推薦システム：k近傍法](chap04.md)
