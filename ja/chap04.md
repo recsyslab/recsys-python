@@ -1,5 +1,5 @@
 ---
-title: k近傍法 | recsys-python
+title: 第4章 k近傍法 | recsys-python
 layout: default
 ---
 
