@@ -182,7 +182,7 @@ S =
 分散共分散行列$$\boldsymbol{S}$に対して、
 
 $$
-\bm{S} \bm{v} = \lambda \bm{v} \;\;\;\; (\bm{x} \neq \bm{0})
+\boldsymbol{S} \boldsymbol{v} = \lambda \boldsymbol{v} \;\;\;\; (\boldsymbol{x} \neq \boldsymbol{0})
 $$
 
 を満たす$d$次元ベクトル$$\boldsymbol{v}$$と実数$$\lambda$$が存在するとき、$$\lambda$$を行列$\boldsymbol{S}$の固有値，$$\boldsymbol{v}$$を$$\lambda$$に関する行列$$\boldsymbol{S}$$の固有ベクトルという。このとき、次の問いに答えなさい。
