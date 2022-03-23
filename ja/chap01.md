@@ -9,6 +9,9 @@ layout: default
 [Home](../../../README.md)
 [chap02](../chap02.md)
 
+[Home](/)
+[Home](/README.md)
+
 # 第1章 評価履歴
 
 ## 準備
