@@ -12,6 +12,7 @@ layout: default
 [Home](/)
 [Home](/README.md)
 [Home](/recsys-python/)
+[Home](/recsys-python/README.md)
 
 # 第1章 評価履歴
 
