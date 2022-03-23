@@ -5,8 +5,7 @@ layout: default
 
 {% include header.html %}
 
-[Home](../../)
-[Home](/)
+[Home](https://recsyslab.github.io/recsys-python/)
 
 # 第1章 評価履歴
 
