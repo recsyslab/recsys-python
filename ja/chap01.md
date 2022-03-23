@@ -5,6 +5,8 @@ layout: default
 
 {% include header.html %}
 
+[Home](../../)
+
 # 第1章 評価履歴
 
 ## 準備
