@@ -5,6 +5,8 @@ layout: default
 
 {% include header.html %}
 
+[Home](https://recsyslab.github.io/recsys-python/)
+
 # 第2章 評価値行列
 
 ## 準備
