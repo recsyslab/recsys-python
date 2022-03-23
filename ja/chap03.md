@@ -5,8 +5,6 @@ layout: default
 
 {% include header.html %}
 
-[Home](https://recsyslab.github.io/recsys-python/)
-
 # 第3章 類似度に基づく推薦
 
 ## 準備
