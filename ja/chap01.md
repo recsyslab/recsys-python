@@ -5,7 +5,7 @@ layout: default
 
 {% include header.html %}
 
-[Home](../README.md)
+[Home](../../../README.md)
 
 # 第1章 評価履歴
 
