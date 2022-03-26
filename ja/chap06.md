@@ -63,7 +63,7 @@ def cos(i, j):
     float
         コサイン類似度
     """
-    Uij = np.intersect1d(Ui, Uj)
+    Uij = np.intersect1d(Ui[i], Ui[j])
     
     【    問01    】
     return cosine
