@@ -11,6 +11,7 @@ layout: default
 次のコードを書きなさい。
 
 ```python
+import pprint
 import numpy as np
 np.set_printoptions(precision=3)
 
@@ -45,7 +46,7 @@ $$
 
 ###### 関数
 
-```
+```python
 def pearson1(u, v):
     """
     評価値行列Rにおけるユーザuとユーザvのピアソンの相関係数を返す。
@@ -142,7 +143,7 @@ $$
 
 ###### 関数
 
-```
+```python
 def pearson2(u, v):
     """
     平均中心化評価値行列R2におけるユーザuとユーザvのピアソンの相関係数を返す。
@@ -177,7 +178,7 @@ def pearson2(u, v):
 ```python
 u = 0
 v = 1
-similarity = pearson2(u, v)
+prsn = pearson2(u, v)
 print('pearson2({}, {}) = {:.3f}'.format(u, v, prsn))
 ```
 
