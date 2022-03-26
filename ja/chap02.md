@@ -314,7 +314,7 @@ Iu =
 ```python
 u = 0
 v = 1
-【    問12    】
+【    問13    】
 print('I{}{} = {}'.format(u, v, Iuv))
 ```
 
