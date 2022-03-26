@@ -252,6 +252,7 @@ pprint.pprint(Ii)
 # 各アイテムの類似アイテム集合をまとめた辞書
 Ii = {i: np.array(list(Ii[i].keys())) for i in I}
 print('Ii = ')
+pprint.pprint(Ii)
 ```
 
 ###### 結果
