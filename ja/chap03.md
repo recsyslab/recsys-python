@@ -172,7 +172,7 @@ def cos(pu, xi):
     【    問05    】
     print('den_u = {:.3f}'.format(den_u))
     【    問06    】
-    den_i = np.linalg.norm(xi)
+    print('den_i = {:.3f}'.format(den_i))
     
     cosine = num / (den_u * den_i)
     return cosine
@@ -266,7 +266,7 @@ $$
 
 ###### 関数
 
-```
+```python
 def score(u, i):
     """
     スコア関数：ユーザuのアイテムiに対するスコアを返す。
