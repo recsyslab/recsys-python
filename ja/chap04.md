@@ -102,7 +102,7 @@ dist(x7, x3) = 5.000
 このとき、関数の仕様を満たすように、次の問いに答えなさい。
 
 ### 01 ユークリッド距離
-$$\boldsymbol{x}_{i}$$と$$\boldsymbol{x}_{j}$$のユークリッド距離\mathrm{dist}(\boldsymbol{x}_{i}, \boldsymbol{x}_{j})を求めるコードを書きなさい。得られた値を`distance`とすること。
+$$\boldsymbol{x}_{i}$$と$$\boldsymbol{x}_{j}$$のユークリッド距離$$\mathrm{dist}(\boldsymbol{x}_{i}, \boldsymbol{x}_{j})$$を求めるコードを書きなさい。得られた値を`distance`とすること。
 
 ★★★
 1. `ndarray.size`を使う。
