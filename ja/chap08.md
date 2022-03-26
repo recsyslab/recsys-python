@@ -179,7 +179,7 @@ S =
 5. `numpy.sum()`を使う。
 
 ## 固有値・固有ベクトル
-分散共分散行列$$\boldsymbol{S}$に対して、
+分散共分散行列$$\boldsymbol{S}$$に対して、
 
 $$
 \boldsymbol{S} \boldsymbol{v} = \lambda \boldsymbol{v} \;\;\;\; (\boldsymbol{x} \neq \boldsymbol{0})
