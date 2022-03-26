@@ -177,7 +177,7 @@ def pearson2(u, v):
 ```python
 u = 0
 v = 1
-similarity = pearson2(u, v)
+prsn = pearson2(u, v)
 print('pearson2({}, {}) = {:.3f}'.format(u, v, prsn))
 ```
 
