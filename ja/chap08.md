@@ -52,7 +52,7 @@ $$
 $$
 s_{i,j} = 
     \begin{cases}
-        \frac{1}{\mid U_{i,j} \mid} \sum_{u \in U_{i,j}} (r_{u,i}^{'} - \overline{r}_{i}^{'}) (r_{u,j} - \overline{r}_{j}^{'}) & (U_{i,j} \neq \emptyset) \\
+        \frac{1}{\mid U_{i,j} \mid} \sum_{u \in U_{i,j}} (r_{u,i}^{'} - \overline{r}_{i}^{'}) (r_{u,j}^{'} - \overline{r}_{j}^{'}) & (U_{i,j} \neq \emptyset) \\
         0 & (U_{i,j} = \emptyset)
     \end{cases}
 $$
