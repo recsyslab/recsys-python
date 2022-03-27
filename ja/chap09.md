@@ -11,6 +11,7 @@ layout: default
 次のコードを書きなさい。
 
 ```python
+import pprint
 import numpy as np
 from fractions import Fraction
 
