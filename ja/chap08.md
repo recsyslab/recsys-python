@@ -52,7 +52,7 @@ $$
 $$
 s_{i,j} = 
     \begin{cases}
-        \frac{1}{\mid U_{i,j} \mid} \sum_{u \in U_{i,j}} (r_{u,i}^{'} - \overline{r}_{i}^{'}) (r_{u,j} - \overline{r}_{j}^{'}) & (U_{i,j} \neq \emptyset) \\
+        \frac{1}{\mid U_{i,j} \mid} \sum_{u \in U_{i,j}} (r_{u,i}^{'} - \overline{r}_{i}^{'}) (r_{u,j}^{'} - \overline{r}_{j}^{'}) & (U_{i,j} \neq \emptyset) \\
         0 & (U_{i,j} = \emptyset)
     \end{cases}
 $$
@@ -77,7 +77,7 @@ $$
 このとき、次の問いに答えなさい。
 
 ### 01 各アイテムに対して与えられた平均中心化評価値の平均値
-`R2`において各アイテムに対して与えられた平均中心化評価値の平均値$$\overline{r}_{i}$$を`ndarray`としてまとめて求めるコードを書きなさい。得られた`ndarray`を`xi_mean`とすること。
+`R2`において各アイテムに対して与えられた平均中心化評価値の平均値$$\overline{r}_{i}$$を`ndarray`としてまとめて求めるコードを書きなさい。得られた`ndarray`を`ri2_mean`とすること。
 
 ###### コード
 
@@ -179,7 +179,7 @@ S =
 5. `numpy.sum()`を使う。
 
 ## 固有値・固有ベクトル
-分散共分散行列$$\boldsymbol{S}$に対して、
+分散共分散行列$$\boldsymbol{S}$$に対して、
 
 $$
 \boldsymbol{S} \boldsymbol{v} = \lambda \boldsymbol{v} \;\;\;\; (\boldsymbol{x} \neq \boldsymbol{0})
