@@ -175,7 +175,6 @@ $$
 ###### コード
 
 ```python
-print('MSE_{} = {:.3f}'.format('B', MSE_B))
 【    問05    】
 print('RMSE_{} = {:.3f}'.format('A', RMSE_A))
 【    問06    】
