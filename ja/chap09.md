@@ -68,12 +68,13 @@ $$
 ここで、$$d$$は特徴ベクトル$$\boldsymbol{x}_{i}$$の次元数である。ベイズの定理および単純ベイズ仮定を用いると、上式はそれぞれ次式のように表される。
 
 $$
-P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1)
+\frac{P(R = +1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = +1)} {P(x_{i,1}, \ldots, x_{i,d})}
 $$
 
 $$
-P(R = -1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = -1)
+\frac{P(R = -1) \prod_{k=1}^{d} P(X_{k} = x_{i,k} \mid R = -1)} {P(x_{i,1}, \ldots, x_{i,d})}
 $$
+
 
 ## 事前確率
 
