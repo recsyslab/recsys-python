@@ -337,7 +337,7 @@ Ii =
 $$
 \hat{r}_{u,i} = 
  \begin{cases}
-  \frac{\sum_{j \in I_{u}^{i}} \mathrm{sim}(i, j) \cdot r_{u,j}}{\sum_{j \in I_{u}^{i}} \mid \mathrm{sim}(i,j) \mid} & (I_{u}^{i} \neq \emptyset) \\
+  \frac{\sum_{j \in I_{u}^{i}} \mathrm{sim}(i, j) \cdot r_{u,j}^{'}}{\sum_{j \in I_{u}^{i}} \mid \mathrm{sim}(i,j) \mid} & (I_{u}^{i} \neq \emptyset) \\
   \overline{r}_{u} & (I_{u}^{i} = \emptyset)
  \end{cases}
 $$
