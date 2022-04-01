@@ -154,10 +154,10 @@ cos(0, 4)' = -0.868
 3. `numpy.sqrt()`を使う。
 
 ## アイテム-アイテム類似度行列
-アイテム$$i$$とアイテム$$j$$のアイテム類似度$$\mathrm{sim}(i, j)^{'}$$は次式で定義される。
+アイテム$$i$$とアイテム$$j$$のアイテム類似度$$\mathrm{sim}(i, j)$$は次式で定義される。
 
 $$
-\mathrm{sim}(i, j)^{'} = \mathrm{cos}(i, j)^{'}
+\mathrm{sim}(i, j) = \mathrm{cos}(i, j)^{'}
 $$
 
 このアイテム類似度関数を次のコードのとおり定義する。
@@ -337,7 +337,7 @@ Ii =
 $$
 \hat{r}_{u,i} = 
  \begin{cases}
-  \frac{\sum_{j \in I_{u}^{i}} \mathrm{sim}(i, j) \cdot r_{u,j}^{'}}{\sum_{j \in I_{u}^{i}} \mid \mathrm{sim}(i,j) \mid} & (I_{u}^{i} \neq \emptyset) \\
+  \frac{\sum_{j \in I_{u}^{i}} \mathrm{sim}(i, j) \cdot r_{u,j}}{\sum_{j \in I_{u}^{i}} \mid \mathrm{sim}(i,j) \mid} & (I_{u}^{i} \neq \emptyset) \\
   \overline{r}_{u} & (I_{u}^{i} = \emptyset)
  \end{cases}
 $$
