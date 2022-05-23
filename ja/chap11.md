@@ -48,6 +48,11 @@ $$
 ```python
 import numpy as np
 
+# とりうる評価値の最大値
+R_MAX = 5
+# とりうる評価値の最小値
+R_MIN = 1
+
 # テストデータ
 R = np.array([
               [np.nan, 4,      np.nan, np.nan, np.nan, np.nan, 2,      np.nan, np.nan, np.nan],
