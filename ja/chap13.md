@@ -155,7 +155,7 @@ $$\mathit{MRR}$$を求めるコードを書きなさい。得られた値を`MRR
 3. `ndarray.size`を使う。
 
 ## 平均適合率
-第$$K$$位までのユーザ$$u$$向けの推薦リストの平均逆順位$$\mathit{AP}_{u}$$は次式で定義される。
+第$$K$$位までのユーザ$$u$$向けの推薦リストの平均適合率$$\mathit{AP}_{u}$$は次式で定義される。
 
 $$
 \mathit{AP}_{u} = \frac{1}{\sum_{k=1}^{K} \mathit{rel}_k} \sum_{k=1}^{K} \mathit{rel}_k \cdot \mathit{precision}@k
