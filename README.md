@@ -73,4 +73,4 @@ PythonおよびNumPyについては、下記の公式チュートリアルが参
 
 ## 作成者
 
-龍谷大学 [推薦システム研究室](https://recsyslab.org/) 奥 健太
+龍谷大学 [推薦システム研究室](https://recsyslab.org/) [奥 健太](https://okukenta.net/)
